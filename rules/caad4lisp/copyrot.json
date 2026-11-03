@@ -1,0 +1,55 @@
+[
+  {
+    "rule_id": "C4L-HSK-01",
+    "title": "Copy selected objects and rotate the copy at its new position",
+    "source": {
+      "repo": "https://github.com/caadxyz/caad4lisp",
+      "commit": "393eaa7893bdbf307a3615573fe22a8c1e2b9412",
+      "file": "src/copyrot.lisp",
+      "lines": "9-34",
+      "functions": ["c:cr"]
+    },
+    "statement": "A copy-rotate is composed from native CAD commands: the selection is copied in place (base 0,0 displaced by @), the copy (the previous selection set) is then moved by a user-picked base and second point, and finally rotated about the system LASTPOINT (the move's second point) by a user-entered angle. The routine creates nothing programmatically; the documented outcome of the rule is a fixed command sequence whose result is a displaced, rotated duplicate of the selection. No disposition on a target platform is inferred from the existence of native commands there.",
+    "inputs": [
+      "object selection (ssget, repeated until non-empty)",
+      "base point and second point for the move",
+      "rotation angle"
+    ],
+    "parameters": {},
+    "targets": ["drafting_housekeeping"],
+    "dependencies": [
+      "command calls: _.COPY, _.MOVE, _.ROTATE with _P (previous selection set)",
+      "getvar LASTPOINT",
+      "pause token (interactive in-command input)",
+      "ssget, getpoint"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "Copy-in-place line 20; move of previous selection with pause line 27; rotation base read from LASTPOINT lines 30-32.",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "drafting_habit",
+      "basis": "generic drafting convenience macro; no firm-specific content"
+    },
+    "exceptions": [],
+    "uncertainty": [
+      "Two princ strings begin with a backslash before P and S (unrecognized AutoLISP escape sequences); if the file loads in AutoCAD as its author used it, the strings apparently load — behavior unverified, needs a recorded run",
+      "(while (= sel nil) ...) uses numeric equality on nil — works for the empty-selection case in AutoLISP but is fragile style",
+      "'ent' is setq'd at line 10 but never used and is not declared local — a stray global",
+      "The sequence relies on _P (previous selection) surviving across three command calls; AutoCAD maintains it, IntelliCAD/BricsCAD behavior unverified although the readme claims cross-CAD support",
+      "No run of c:cr exists in LLCO evidence; the composed command sequence is a static reading only"
+    ],
+    "legacy_defect": {
+      "suspected": true,
+      "description": "Suspected defects (existence of the code patterns is observed; runtime impact unverified): suspected invalid escape sequences in two princ strings (may fail or print unexpectedly on load); stray global 'ent'; nil compared with numeric =. None affect geometry if the strings load.",
+      "disposition": null
+    },
+    "required_human_ruling": [
+      "Disposition of this rule on any target platform (keep_for_compatibility / fix / retire) is reserved to the estate's acceptance authority. LLCO records the rule's documented outcome — a fixed copy-move-rotate command sequence — and does not infer disposition from the existence of comparable native commands on a candidate target platform."
+    ]
+  }
+]
