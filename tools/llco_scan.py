@@ -9,7 +9,7 @@ import os, re, sys, json, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 root = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'corpus', '_sources')
 out_path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'results', 'latest-static-inventory.json')
-EXT = {'.lsp':'lisp','.dcl':'dcl','.fas':'compiled','.vlx':'compiled','.mnl':'menu-lisp','.cuix':'menu','.cui':'menu','.mnu':'menu',
+EXT = {'.lsp':'lisp','.lisp':'lisp','.dcl':'dcl','.fas':'compiled','.vlx':'compiled','.mnl':'menu-lisp','.cuix':'menu','.cui':'menu','.mnu':'menu',
        '.csv':'data','.xls':'data','.xlsx':'data','.txt':'text','.ini':'data','.dat':'data','.dwg':'drawing','.dwt':'template','.dxf':'drawing','.scr':'script'}
 PAT = {
  'commands':      r'\(\s*defun\s+c:([\w\-\*\.]+)',
@@ -39,7 +39,7 @@ for repo in sorted(os.listdir(root)):
             ext = os.path.splitext(f)[1].lower(); kind = EXT.get(ext)
             if f.upper().startswith(('LICENSE','LICENCE','COPYING')): lic = f
             if kind: files[kind] += 1
-            if ext == '.lsp':
+            if ext in ('.lsp', '.lisp'):
                 t = open(os.path.join(dp, f), encoding='utf-8', errors='replace').read()
                 t = re.sub(r';[^\n]*', '', t)  # strip comments
                 n = t.count('\n') + 1; lines += n

@@ -1,7 +1,7 @@
 {
   "corpus": "LLCO sample corpus 1",
   "created": "2026-11-03",
-  "rule": "Third-party code is not stored in this repository. tools/fetch_corpus.py clones each source at the pinned commit into corpus/_sources/ (git-ignored). Sources are read as data, never executed. GPL-licensed sources are analysed locally and not redistributed.",
+  "rule": "Third-party code is not stored in this repository. tools/fetch_corpus.py clones each source at the pinned commit into corpus/_sources/ (git-ignored). Sources are read as data, never executed. GPL-licensed sources are analysed locally and not redistributed. Third-party marks were searched by name (Lee Mac, JTB World, CADTutor, TheSwamp); absence of a mark is not proof of sole authorship.",
   "sources": [
     {
       "repo": "https://github.com/dtgoitia/civil-autolisp",
@@ -28,7 +28,23 @@
         "entity_modify": 9,
         "sysvars": 629
       },
-      "local_dir": "dtgoitia__civil-autolisp"
+      "local_dir": "dtgoitia__civil-autolisp",
+      "status": "analysis_only",
+      "third_party_files": [
+        "0 - Function library.lsp",
+        "Dump folder/0 - Function library.lsp",
+        "Dump folder/Deployment.lsp",
+        "Dump folder/GrSnapDemo.lsp",
+        "Dump folder/GrSnapV1-0.lsp",
+        "Dump folder/LmAttributeFunctions.lsp",
+        "Dump folder/LmColourConversion.lsp",
+        "Dump folder/LmDynamicBlockFunctions.lsp",
+        "Dump folder/LmListManipulation.lsp",
+        "Dump folder/Ploting.lsp",
+        "Dump folder/ReadingASCIIFilesWithAutoLisp.lsp",
+        "STRUCTURAL - Coordinate table.lsp"
+      ],
+      "status_reason": "12 files carry third-party code (Lee Mac, JTB World, CADTutor, TheSwamp), including the main function library \"0 - Function library.lsp\" that most commands depend on; the repository licence does not settle their terms"
     },
     {
       "repo": "https://github.com/hassin070/MEP-AUTOCAD-Scripts",
@@ -55,7 +71,9 @@
         "entity_modify": 0,
         "sysvars": 2
       },
-      "local_dir": "hassin070__MEP-AUTOCAD-Scripts"
+      "local_dir": "hassin070__MEP-AUTOCAD-Scripts",
+      "status": "evaluation",
+      "third_party_files": []
     },
     {
       "repo": "https://github.com/smallcluster/Autolisps",
@@ -82,7 +100,9 @@
         "entity_modify": 0,
         "sysvars": 2
       },
-      "local_dir": "smallcluster__Autolisps"
+      "local_dir": "smallcluster__Autolisps",
+      "status": "evaluation",
+      "third_party_files": []
     },
     {
       "repo": "https://github.com/masterblogger/AutoLispFurniture",
@@ -109,7 +129,10 @@
         "entity_modify": 0,
         "sysvars": 0
       },
-      "local_dir": "masterblogger__AutoLispFurniture"
+      "local_dir": "masterblogger__AutoLispFurniture",
+      "status": "analysis_only",
+      "third_party_files": [],
+      "status_reason": "GPL-3.0: analysed locally, not redistributed"
     },
     {
       "repo": "https://github.com/kruuger/GT-CAD",
@@ -136,7 +159,95 @@
         "entity_modify": 6,
         "sysvars": 21
       },
-      "local_dir": "kruuger__GT-CAD"
+      "local_dir": "kruuger__GT-CAD",
+      "status": "analysis_only",
+      "third_party_files": [],
+      "status_reason": "GPL-3.0: analysed locally, not redistributed"
+    },
+    {
+      "repo": "https://github.com/LetsBIMtogether/AutoLisp",
+      "commit": "7e3cb6c98e19043fed2c4865224fddf7b300a355",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Small architectural routines (room and door dimensions, tag search, text masks, layers)",
+      "local_dir": "LetsBIMtogether__AutoLisp",
+      "status": "evaluation",
+      "third_party_files": [
+        "AG_DoorDimensions_v8.LSP",
+        "AG_RoomDimensions_v9.LSP"
+      ],
+      "status_reason": "Files with Lee Mac code excluded from evaluation until provenance is settled"
+    },
+    {
+      "repo": "https://github.com/caadxyz/caad4lisp",
+      "commit": "393eaa7893bdbf307a3615573fe22a8c1e2b9412",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Geometry, walls, openings, axes, dimensions; multi-file, DCL, no COM",
+      "local_dir": "caadxyz__caad4lisp",
+      "status": "evaluation",
+      "third_party_files": [],
+      "status_reason": "Development alpha per its README"
+    },
+    {
+      "repo": "https://github.com/vjspab/autocad-lisp-toolkit",
+      "commit": "c244555256b43e9ad1e6b1f39a655aaf398ed129",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Residential plot generation, numbering, dimensions, CSV export",
+      "local_dir": "vjspab__autocad-lisp-toolkit",
+      "status": "evaluation",
+      "third_party_files": [
+        "RADIAL_BLOCK.lsp"
+      ],
+      "status_reason": "RADIAL_BLOCK.lsp carries Lee Mac code: excluded from evaluation"
+    },
+    {
+      "repo": "https://github.com/beastt1992/WallCenterline",
+      "commit": "5872b148dcccd4cec773be36d0e735e350cba338",
+      "licence": "MIT (README only)",
+      "licence_file": null,
+      "why": "Wall centrelines from floor-plan linework",
+      "local_dir": "beastt1992__WallCenterline",
+      "status": "deferred",
+      "third_party_files": [],
+      "status_reason": "No licence file; README declares MIT. Deferred until a licence file or author confirmation"
+    },
+    {
+      "repo": "https://github.com/manualChair/commonlib",
+      "commit": "79164a197831e89b76f86d452c55688ca0d896a6",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Function library (210 files, no commands): pure-language tests, namespaces",
+      "local_dir": "manualChair__commonlib",
+      "status": "evaluation",
+      "third_party_files": []
+    },
+    {
+      "repo": "https://github.com/manualChair/include",
+      "commit": "d3af9db82afaf1099c85b60b34bf11d164cea087",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Library loading system: load-chain and namespace complexity",
+      "local_dir": "manualChair__include",
+      "status": "evaluation",
+      "third_party_files": []
+    },
+    {
+      "repo": "https://github.com/Jciel/cathedral",
+      "commit": "6d593cb3d8d85173e8630f21e38c464a687c5e10",
+      "licence": "MIT",
+      "licence_file": "LICENSE",
+      "why": "Development function collection: pure-language tests",
+      "local_dir": "Jciel__cathedral",
+      "status": "evaluation",
+      "third_party_files": []
     }
-  ]
+  ],
+  "statuses": {
+    "evaluation": "May be used in the LLCO evaluation set (files listed in third_party_files excluded)",
+    "analysis_only": "Read and analysed locally; not part of the evaluation set; not redistributed",
+    "deferred": "Not used until the licence question is settled"
+  },
+  "updated": "2026-11-03"
 }

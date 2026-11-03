@@ -33,6 +33,11 @@
         "kind": "static_reading",
         "detail": "grad = dist / |IL2 - IL1|; label uses (itoa (LM:Round grad))",
         "run_id": null
+      },
+      {
+        "kind": "interpreter_probe",
+        "detail": "Extracted formula run in VeLisp 0.8.0 with a mocked 3D distance: 30 m plan and 0.2 m fall gives 1/150; with a 5 m Z difference between the points 1/152. Quantifies the CIV-PIPE-01 vs CIV-INT-01 difference; manhole Z values in real drawings not yet observed.",
+        "run_id": "velisp-001"
       }
     ],
     "authority": {

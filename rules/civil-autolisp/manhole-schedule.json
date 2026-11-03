@@ -49,6 +49,11 @@
         "kind": "static_reading",
         "detail": "cond with strict < and > comparisons; attribute CS",
         "run_id": null
+      },
+      {
+        "kind": "interpreter_probe",
+        "detail": "Extracted cond run in VeLisp 0.8.0: 0.375, 0.700, 0.900 m return nil (no band); 0.300, 0.450, 1.000 m return DN1200, DN1500, Consult Undertaker. Supports the suspected defect for the extracted logic; the original routine in AutoCAD is not yet observed.",
+        "run_id": "velisp-001"
       }
     ],
     "authority": {

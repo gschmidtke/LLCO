@@ -16,13 +16,14 @@ Status: **test hub, early prototype.** Nothing here is a product or a validated 
 
 | Path | Content |
 |---|---|
-| `corpus/MANIFEST.json` | Public AutoLISP sources used for testing: repository, pinned commit, licence, why it is included |
+| `corpus/MANIFEST.json` | Public AutoLISP sources: repository, pinned commit, licence, status (evaluation / analysis only / deferred), files with third-party code |
 | `tools/fetch_corpus.py` | Clones every source at its pinned commit into `corpus/_sources/` (git-ignored) |
 | `tools/llco_scan.py` | Step 1 prototype: read-only static inventory (commands, COM calls, dialogs, file I/O, reactors, load chain, user input, entity creation) |
 | `tools/lisp_reader.py`, `tools/llco_structure.py` | Step 2a: parser-based structure of an estate (definitions, calls, load chain, built-in vs internal vs unresolved, duplicate definitions with body comparison, per-command dependencies) |
 | `tools/fetch_tools.py` | Fetches the AutoLispExt help index (Autodesk, Apache-2.0) used to recognise built-in functions |
 | `schema/rule-record.schema.json` | Draft rule record: one recovered rule with source, statement, targets, evidence status, authority, suspected defects, rulings needed |
 | `rules/` | Rule records per estate |
+| `probes/` | Rule kernels tested outside AutoCAD (VeLisp), with named mocks; what VeLisp can and cannot run |
 | `results/` | Dated scan and structure results |
 | `docs/findings/` | Dated findings per estate |
 

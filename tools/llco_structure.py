@@ -83,7 +83,7 @@ def analyse(src, builtins, exclude):
     for dp, dn, fn in os.walk(src):
         dn[:] = [d for d in dn if d != ".git" and os.path.relpath(os.path.join(dp, d), src) not in exclude]
         for f in sorted(fn):
-            if not f.lower().endswith(".lsp"):
+            if not f.lower().endswith((".lsp", ".lisp")):
                 continue
             path = os.path.join(dp, f)
             rel = os.path.relpath(path, src)

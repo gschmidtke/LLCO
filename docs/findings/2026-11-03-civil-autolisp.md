@@ -50,10 +50,18 @@ Commands with unresolved calls: 29 of 227. Built-ins were identified with Autode
 
 ## 6. What step 4 (proof) needs
 
-All four routines use Visual LISP COM (6–20 calls each) and interactive input. They cannot run in the AutoCAD Core Console or in a LISP interpreter outside AutoCAD. Recording them needs **desktop AutoCAD** driven by a bridge, with scripted answers to the prompts.
+All four routines use Visual LISP COM (6–20 calls each) and interactive input. They cannot run in the AutoCAD Core Console or in VeLisp. Recording them needs **desktop AutoCAD** driven by a bridge, with scripted answers to the prompts.
+
+Narrower experiments do not wait for that. The extracted logic of a rule can be probed in VeLisp with drawing access cut away and the missing functions mocked (`probes/`, evidence kind `interpreter_probe`). Probe velisp-001 (2026-11-03) reproduced the CIV-MS-01 boundary gap in the extracted logic (0.375, 0.700, 0.900 m → no band) and quantified the CIV-PIPE-01 vs CIV-INT-01 gradient difference (1/150 plan vs 1/152 with a 5 m Z offset). Both rules stay `insufficient`: the original routines have not been observed.
+
+## 6a. Provenance
+
+12 files carry third-party code marks (Lee Mac, JTB World, CADTutor, TheSwamp), including the main function library `0 - Function library.lsp` (the `LM:` functions). The repository's MIT licence does not settle their terms; Lee Mac's published terms require written consent for redistribution and commercial incorporation. This estate is therefore `analysis_only` in `corpus/MANIFEST.json`: read and analysed, not part of the evaluation set. LLCO stores none of its code.
 
 ## 7. Limits of this pass
 
 - Static reading by one reviewer (Claude); no recorded runs; no domain review yet.
 - Authorities are claims, mostly `unknown` or inferred (e.g. UK adoption standards); none is verified.
 - The structure tool is a first parser: dynamic calls (`eval`, symbols built at runtime) are not resolved.
+- Third-party marks were searched by name; absence of a mark is not proof of sole authorship.
+- "Not covered by the sources inspected" is the correct reading of any gap claimed here; no broader market review was made.
