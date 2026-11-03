@@ -21,6 +21,17 @@ What VeLisp 0.8.0 can and cannot run (from its function list, checked 2026-11-03
 
 So VeLisp can test pure logic (calculations, tables, string building, library functions) once drawing access is cut away or mocked. Every mock is named in the probe.
 
+**Calibration against recorded AutoCAD runs** (`docs/findings/2026-11-03-velisp-calibration.md`): VeLisp differs from AutoCAD where it has been checked, and those differences matter:
+
+| Id | Difference | Consequence |
+|---|---|---|
+| D1 | `(fix -1.6)` → -2 in VeLisp, -1 in AutoCAD | Rounding helpers built on `fix` (e.g. `LM:Round`) are wrong for negative numbers |
+| G1–G4 | Grammar gaps: quoted special-form names, dotted pairs with symbols in quoted data, `?`/`\|` in names, others | Files do not load; dependants fail |
+| W1 | `(defun f (/ a) …)` fails unless written `( / a)` | Rewritten in the temporary copy only |
+| — | `equal` with tolerance argument not supported | Arity error |
+
+velisp-001 uses only non-negative values and is not affected by D1.
+
 ## velisp-001: civil kernels
 
 `velisp-001-civil-kernels.lsp`, output in `../results/2026-11-03-velisp-001.txt`.

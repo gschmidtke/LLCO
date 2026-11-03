@@ -24,6 +24,7 @@ Status: **test hub, early prototype.** Nothing here is a product or a validated 
 | `schema/rule-record.schema.json` | Draft rule record: one recovered rule with source, statement, targets, evidence status, authority, suspected defects, rulings needed |
 | `rules/` | Rule records per estate |
 | `probes/` | Rule kernels tested outside AutoCAD (VeLisp), with named mocks; what VeLisp can and cannot run |
+| `tools/velisp_examples.py`, `tools/velisp_load_coverage.py` | Calibrate VeLisp: replay a library's recorded AutoCAD console transcripts; load every file and classify failures |
 | `results/` | Dated scan and structure results |
 | `docs/findings/` | Dated findings per estate |
 
@@ -34,7 +35,7 @@ python tools/llco_scan.py
 python tools/llco_structure.py corpus/_sources/dtgoitia__civil-autolisp tools/_ext/AutoLispExt/extension/src/help/webHelpAbstraction.json results/structure.json --exclude "Dump folder"
 ```
 
-Latest findings: [civil-autolisp, 2026-11-03](docs/findings/2026-11-03-civil-autolisp.md).
+Findings: [civil-autolisp structure and rules](docs/findings/2026-11-03-civil-autolisp.md) · [VeLisp calibrated against recorded AutoCAD runs](docs/findings/2026-11-03-velisp-calibration.md) (2026-11-03).
 
 ## Rules for this repository
 

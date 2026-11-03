@@ -1,0 +1,1060 @@
+{
+ "summary": {
+  "files": 209,
+  "workarounds": {
+   "W1_param_list_slash": 10
+  },
+  "status": {
+   "loaded": 178,
+   "parse_error": 23,
+   "runtime_error": 8
+  }
+ },
+ "results": [
+  {
+   "file": "arrays/aref.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/array-dimensions.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/array-type.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/arrayp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/make-array.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/set-aref.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/set-svref.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/simple-vector-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "arrays/svref.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/ControlCode-p.LSP",
+   "status": "parse_error",
+   "error": "load: characters/ControlCode-p.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "characters/alpha-char-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/alphanumericp.LSP",
+   "status": "parse_error",
+   "error": "load: characters/alphanumericp.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "characters/char-downcase.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-equal.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-greaterp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-lessp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-not-equal.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-not-greaterp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-not-lessp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/char-upcase.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/characterp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/digit-char-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/digit-char.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "characters/lower-case-p.LSP",
+   "status": "parse_error",
+   "error": "load: characters/lower-case-p.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "characters/upper-case-p.LSP",
+   "status": "parse_error",
+   "error": "load: characters/upper-case-p.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "common/ISO-639-1.LSP",
+   "status": "parse_error",
+   "error": "load: common/ISO-639-1.LSP: no viable alternative at input '(((\"AB\"\"ABK\"\"ABKS\").AB)((\"AA\"\"AAR\"\"AARS\").AA)((\"AF\"\"ABK\"\"AFRS\").AF)((\"AK\"\"AKA\").AK)((\"SQ\"\"SQI\"\"ALB\").SQ)((\"AR\"\"ARA\").AR)((\"AN\"\"ARG\").AN)((\"H"
+  },
+  {
+   "file": "common/LISPSYS.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/default.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/float_comparison.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/float_equal.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/member-of-option-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/scope-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/scope.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "common/tolerance.LSP",
+   "status": "runtime_error",
+   "error": "load: common/tolerance.LSP: *: expected Int, Real"
+  },
+  {
+   "file": "conditions/exception.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/ALValue.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/acons.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/adjoin.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/assoc-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/butlast.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/cars.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/cdrs.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/chain.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/endp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/intersection.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/last-cons.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/make-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/mapc.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/mapcan.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/mapcon.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/mapl.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/maplist.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/nthcdr.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/organizeGroup.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/periodic-nth.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/range.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/set-ALValue.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/set-difference.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/stack.LSP",
+   "status": "parse_error",
+   "error": "load: conses/stack.LSP: no viable alternative at input '(eval(list'lambda'"
+  },
+  {
+   "file": "conses/sublis.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/subst-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/subst-tree.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/union.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "conses/zip.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "environment/time.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "evaluation/apply-partial.LSP",
+   "status": "parse_error",
+   "error": "load: evaluation/apply-partial.LSP: no viable alternative at input '(eval(list'lambda'"
+  },
+  {
+   "file": "evaluation/compose-apply.LSP",
+   "status": "parse_error",
+   "error": "load: evaluation/compose-apply.LSP: no viable alternative at input '(eval(list'lambda'"
+  },
+  {
+   "file": "evaluation/compose.LSP",
+   "status": "parse_error",
+   "error": "load: evaluation/compose.LSP: no viable alternative at input '(eval(list'lambda'"
+  },
+  {
+   "file": "evaluation/recurse-binOperator.LSP",
+   "status": "parse_error",
+   "error": "load: evaluation/recurse-binOperator.LSP: no viable alternative at input '(eval(list'lambda'"
+  },
+  {
+   "file": "flow/functionp.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "flow/identity.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "flow/unless.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "flow/when.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "flow/xor.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "linear_algebra/3DVector.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "linear_algebra/determinant.LSP",
+   "status": "runtime_error",
+   "error": "load: linear_algebra/determinant.LSP: defstruct: function not defined"
+  },
+  {
+   "file": "linear_algebra/matrix.LSP",
+   "status": "runtime_error",
+   "error": "load: linear_algebra/matrix.LSP: recurse-binaryOperator: function not defined"
+  },
+  {
+   "file": "linear_algebra/matrix_Inverse-Cofactor.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "linear_algebra/transform.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "linear_algebra/transformation-matrix.LSP",
+   "status": "runtime_error",
+   "error": "load: linear_algebra/transformation-matrix.LSP: matrix:Identity: function not defined"
+  },
+  {
+   "file": "linear_algebra/vector.LSP",
+   "status": "runtime_error",
+   "error": "load: linear_algebra/vector.LSP: recurse-binaryOperator: function not defined"
+  },
+  {
+   "file": "numbers/acos.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/acosh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/asin.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/asinh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/atanh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/bitlist.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/bittest.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/ceiling.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/compound.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/cosh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/evenp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/floor.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/integerp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/lcm.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/log-b.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/mod.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/oddp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/parse-integer-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/parse-integer.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/plusp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/random.LSP",
+   "status": "runtime_error",
+   "error": "load: numbers/random.LSP: *: expected Int, Real"
+  },
+  {
+   "file": "numbers/realp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/round-off.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/signum.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/sinh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/tan.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/tanh.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "numbers/truncate.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "printer/_format-case-conversion.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-case-conversion.LSP: no viable alternative at input '(apply'strcat(mapcar(function(lambda(token)(if(equaltoken'(32)\" \"(iffirst-word(string-downcase'STRtokennilnil)(progn(setqfirs"
+  },
+  {
+   "file": "printer/_format-conditional.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-conditional.LSP: token recognition error at: '|'"
+  },
+  {
+   "file": "printer/_format-control-code.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-control-code.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "printer/_format-directive.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-directive.LSP: no viable alternative at input '((65(83(67(37(38(124(126(82(68(66(79(88(70(69(36(84(42(63(80(60(62(91(93(123(125(40(41(94(59))'"
+  },
+  {
+   "file": "printer/_format-float.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-float.LSP: missing ')' at '('"
+  },
+  {
+   "file": "printer/_format-formatString.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-formatString.LSP: mismatched input ')' expecting {'(', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "printer/_format-in-parentheses.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "printer/_format-integer-grouping.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "printer/_format-integer-slist.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-integer-slist.LSP: extraneous input '<EOF>' expecting {'(', ')', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "printer/_format-integer.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-integer.LSP: extraneous input '(' expecting {')', ID}"
+  },
+  {
+   "file": "printer/_format-iteration.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "printer/_format-justification.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-justification.LSP: extraneous input '(' expecting {')', ID}"
+  },
+  {
+   "file": "printer/_format-prinx.LSP",
+   "status": "parse_error",
+   "error": "load: printer/_format-prinx.LSP: extraneous input ')' expecting {'(', ''', NIL, TRU, INT, REAL, STR, ID}"
+  },
+  {
+   "file": "printer/_format-wondows-registry.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "printer/format.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/_sequence-type-of.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/_sequencep-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/_sequencep.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/affix-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/affix.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/concatenate.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/count-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/count-list-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/count.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/elt.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/fill-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/fill.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/map.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/padding-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/padding.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/position-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/position-list-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/position.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/prioritize-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/prioritize.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/reduce.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-duplicates-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-duplicates.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-list-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-repetition-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove-repetition.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/remove.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/replace-all-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/replace-all.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/replacelis-all-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/replacelis-all.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/reverse-sequence.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/search-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/search.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/sequence-length.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/subseq-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/subseq.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/substitute--if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/substitute-list-if.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/substitute.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/thin-out-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "sequences/thin-out.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "streams/with-open-file.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "streams/write-string.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/_string-trim.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/_stringp-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/_to-variantp-string.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/char.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/make-string.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-capitalize.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-downcase.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-equal.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-greaterp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-left-trim.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-length.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-lessp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-not-equal.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-not-greaterp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-not-lessp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-right-trim.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-trim.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string-upcase.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/string.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/stringp.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/unword.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "strings/word.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "structures/assoclist-structure.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "structures/defstruct.LSP",
+   "status": "parse_error",
+   "error": "load: structures/defstruct.LSP: no viable alternative at input '(set(read(strcatstructure-string\"-\"(vl-symbol-name(carflist))))(eval(list'lambda'"
+  },
+  {
+   "file": "structures/structure-assoclist.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "structures/structure-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "symbols/make-handle.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/AutoCAD/SSToList.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/AutoCAD/listToSS.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/coerce.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/multibyte/_Shift_JIS.LSP",
+   "status": "runtime_error",
+   "error": "load: types/multibyte/_Shift_JIS.LSP: defstruct: function not defined"
+  },
+  {
+   "file": "types/multibyte/_unicode.LSP",
+   "status": "parse_error",
+   "error": "load: types/multibyte/_unicode.LSP: no viable alternative at input '(=(carclist)92(or(=(cadrclist)85(=(caddrclist)43))(defunencode:unicode:make(clist)(make-unicode(parse-integer-listclist0416nil)))(de"
+  },
+  {
+   "file": "types/multibyte/list-string.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/multibyte/multi-byte-char-compare.LSP",
+   "status": "parse_error",
+   "error": "load: types/multibyte/multi-byte-char-compare.LSP: extraneous input '(' expecting {')', ID}"
+  },
+  {
+   "file": "types/multibyte/multi-byte-char-func.LSP",
+   "status": "runtime_error",
+   "error": "load: types/multibyte/multi-byte-char-func.LSP: defstruct: function not defined"
+  },
+  {
+   "file": "types/multibyte/multi-byte-char-p.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/multibyte/multi-byte-char-types.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/multibyte/string-list.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/type-of.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "types/typep.lsp",
+   "status": "loaded",
+   "error": null
+  }
+ ]
+}

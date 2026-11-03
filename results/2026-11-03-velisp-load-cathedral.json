@@ -1,0 +1,54 @@
+{
+ "summary": {
+  "files": 8,
+  "workarounds": {
+   "W1_param_list_slash": 0
+  },
+  "status": {
+   "loaded": 2,
+   "parse_error": 6
+  }
+ },
+ "results": [
+  {
+   "file": "src/block/block.LSP",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "src/core/core.LSP",
+   "status": "parse_error",
+   "error": "load: src/core/core.LSP: token recognition error at: '|'"
+  },
+  {
+   "file": "src/core/date-time.lsp",
+   "status": "loaded",
+   "error": null
+  },
+  {
+   "file": "src/files/excell-files.LSP",
+   "status": "parse_error",
+   "error": "load: src/files/excell-files.LSP: token recognition error at: '?'"
+  },
+  {
+   "file": "src/list/association-list.LSP",
+   "status": "parse_error",
+   "error": "load: src/list/association-list.LSP: token recognition error at: '?'"
+  },
+  {
+   "file": "src/list/simple-list.lsp",
+   "status": "parse_error",
+   "error": "load: src/list/simple-list.lsp: token recognition error at: '?'"
+  },
+  {
+   "file": "src/math/math.LSP",
+   "status": "parse_error",
+   "error": "load: src/math/math.LSP: token recognition error at: '?'"
+  },
+  {
+   "file": "src/string/string.LSP",
+   "status": "parse_error",
+   "error": "load: src/string/string.LSP: token recognition error at: '?'"
+  }
+ ]
+}
