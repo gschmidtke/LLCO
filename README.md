@@ -1,2 +1,2 @@
 # LLCO
-Lisp conversion test hub
+Lisp conversion test hub for USG logic extraction
