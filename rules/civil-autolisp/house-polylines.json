@@ -1,0 +1,144 @@
+[
+  {
+    "rule_id": "CIV-HS-01",
+    "title": "Wall work-block thickness by building type",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "CIVIL - House polylines.lsp",
+      "lines": "42-59",
+      "functions": [
+        "c:hs"
+      ]
+    },
+    "statement": "For each selected building outline, the user chooses the building type. A house gets a wall band 0.302 m thick, a garage 0.215 m thick. If no type is chosen, House applies.",
+    "inputs": [
+      "building outline (closed or open polyline)",
+      "building type: House | Garage"
+    ],
+    "parameters": {
+      "house_wall_thickness_m": 0.302,
+      "garage_wall_thickness_m": 0.215,
+      "default_type": "House"
+    },
+    "targets": [
+      "variation_switching",
+      "geometry"
+    ],
+    "dependencies": [],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "cond on the keyword answer sets thickness 0.302 or 0.215",
+        "run_id": null
+      },
+      {
+        "kind": "source_comment",
+        "detail": "v0.6 note: all buildings selected together get the same thickness",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "unknown",
+      "basis": "0.302 m and 0.215 m match common UK wall build-ups (cavity wall, one-brick wall); not stated in the source"
+    },
+    "uncertainty": [
+      "Whether the values come from a standard, a client requirement or the author's practice"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Confirm the two thicknesses and their source; are other building types needed?"
+    ]
+  },
+  {
+    "rule_id": "CIV-HS-02",
+    "title": "Building outline is the outer face of the external wall",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "CIVIL - House polylines.lsp",
+      "lines": "61-91",
+      "functions": [
+        "c:hs",
+        "dt:innerpoint"
+      ]
+    },
+    "statement": "The selected outline is treated as the outer face of the external wall: a copy is offset inwards by half the wall thickness and drawn with a constant width equal to the thickness, so the band covers the wall between the outline and the inner face.",
+    "inputs": [
+      "building outline",
+      "wall thickness from CIV-HS-01"
+    ],
+    "parameters": {
+      "offset": "thickness / 2, towards the inside",
+      "band_width": "thickness"
+    },
+    "targets": [
+      "geometry"
+    ],
+    "dependencies": [
+      "DT:InnerPoint (0 - Function library.lsp) to find a point inside the outline"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "offset by dist = 0.5 * thickness towards DT:InnerPoint, then ConstantWidth = thickness",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "drafting_habit",
+      "basis": "representation convention of the set-out drawing"
+    },
+    "uncertainty": [
+      "DT:InnerPoint may fail on non-convex outlines (L-shaped houses); behaviour not observed"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": []
+  },
+  {
+    "rule_id": "CIV-HS-03",
+    "title": "Set-out and work-block layers",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "CIVIL - House polylines.lsp",
+      "lines": "29-31,69-85",
+      "functions": [
+        "c:hs"
+      ]
+    },
+    "statement": "The original outline is closed if open, given zero width and ByLayer colour, and placed on layer 'e-set-out-house'; the wall band goes on layer 'e-work-block'. Both layers are created in colour 7 if missing.",
+    "inputs": [
+      "building outline"
+    ],
+    "parameters": {
+      "setout_layer": "e-set-out-house",
+      "workblock_layer": "e-work-block",
+      "layer_colour": 7
+    },
+    "targets": [
+      "documentation",
+      "drafting_housekeeping"
+    ],
+    "dependencies": [],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "tblsearch/-layer creation; vla-put-layer for outline and copy",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "firm_convention",
+      "basis": "layer names follow a firm prefix scheme (e-...)"
+    },
+    "uncertainty": [],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "In a new platform, map the two layers to categories or keep them as named layers?"
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "rule_id": "CIV-INT-01",
+    "title": "Gradient between two levelled points",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "CIVIL - Interpolate level.lsp",
+      "lines": "65,104-111",
+      "functions": [
+        "c:int"
+      ]
+    },
+    "statement": "Between two points with levels, the gradient is the plan distance (points flattened to 2D) divided by the level difference, shown as 1 in N (N rounded to an integer) and as a percentage to 2 decimals. Equal levels are reported as such.",
+    "inputs": [
+      "point A and level",
+      "point B and level"
+    ],
+    "parameters": {
+      "distance": "plan (2D)",
+      "percent_precision": 2
+    },
+    "targets": [
+      "geometry"
+    ],
+    "dependencies": [
+      "DT:FlatPoint",
+      "DT:clic_or_type_level (two different definitions: 0 - Function library.lsp and _PersonalLibrary.lsp)",
+      "LM:rtos",
+      "LM:Round"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "d12 from flattened points; 1/N and % printed",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "general engineering notation"
+    },
+    "uncertainty": [
+      "Points and levels are remembered between runs in the global INT_lastPoints; a run can reuse the previous run's inputs",
+      "The Pick/Find/Lowpoint modes after line 111 are not yet read"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Same question as CIV-PIPE-01: plan or true length?"
+    ]
+  }
+]

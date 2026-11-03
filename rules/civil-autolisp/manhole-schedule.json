@@ -1,0 +1,226 @@
+[
+  {
+    "rule_id": "CIV-MS-01",
+    "title": "Chamber size by largest connected pipe",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Create manhole schedule.lsp",
+      "lines": "450-465",
+      "functions": [
+        "c:mscs"
+      ]
+    },
+    "statement": "The chamber size of a manhole follows the largest connected pipe diameter D: D below 375 mm → DN1200; between 375 and 700 mm → DN1500; between 700 and 900 mm → DN1800; above 900 mm → 'Consult Undertaker'.",
+    "inputs": [
+      "pipe diameters P0–P4 of the connections in use"
+    ],
+    "parameters": {
+      "bands_mm": [
+        [
+          "<375",
+          "DN1200"
+        ],
+        [
+          "375–700",
+          "DN1500"
+        ],
+        [
+          "700–900",
+          "DN1800"
+        ],
+        [
+          ">900",
+          "Consult Undertaker"
+        ]
+      ]
+    },
+    "targets": [
+      "bom_preparation",
+      "documentation"
+    ],
+    "dependencies": [
+      "CIV-MS-04 (diameter parsing)",
+      "LM:vl-setattributevalue"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "cond with strict < and > comparisons; attribute CS",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "'Consult Undertaker' points to the sewerage undertaker's adoption requirements; table not cited"
+    },
+    "legacy_defect": {
+      "suspected": true,
+      "description": "Diameters of exactly 375, 700 or 900 mm match no band, so the CS attribute is left unchanged (keeps any previous value). 375 mm is a common pipe size.",
+      "disposition": null
+    },
+    "required_human_ruling": [
+      "Which band do 375, 700 and 900 mm belong to?",
+      "Source of the table"
+    ]
+  },
+  {
+    "rule_id": "CIV-MS-02",
+    "title": "Depth to soffit",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Create manhole schedule.lsp",
+      "lines": "435-448,467-474",
+      "functions": [
+        "c:mscs"
+      ]
+    },
+    "statement": "Depth to soffit is the cover level minus the highest pipe soffit, where each soffit is the invert level plus the pipe diameter, over the connections in use (1 to 4, from the block's visibility state). The result is written to attribute SOFFIT to 3 decimals.",
+    "inputs": [
+      "cover level CL",
+      "invert levels IL0–IL4",
+      "diameters P0–P4",
+      "visibility state 0–4"
+    ],
+    "parameters": {
+      "precision": 3
+    },
+    "targets": [
+      "bom_preparation",
+      "documentation"
+    ],
+    "dependencies": [
+      "LM:getvisibilitystate",
+      "get_block_att (two different definitions in 0 - Function library.lsp; the later one wins)"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "top_i = IL_i + P_i; DTS = CL - max(top_i)",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "depth to soffit is a standard manhole schedule quantity"
+    },
+    "uncertainty": [
+      "Visibility state '0' and '1' both use connections 0 and 1"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": []
+  },
+  {
+    "rule_id": "CIV-MS-03",
+    "title": "Manhole type by depth to soffit",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Create manhole schedule.lsp",
+      "lines": "476-498",
+      "functions": [
+        "c:mscs"
+      ]
+    },
+    "statement": "Manhole type follows depth to soffit d: 3 ≤ d ≤ 6 → type A; 1.5 ≤ d ≤ 3 → B; 1 ≤ d ≤ 1.5 → E; below 1 or above 6 → CHECK.",
+    "inputs": [
+      "depth to soffit from CIV-MS-02"
+    ],
+    "parameters": {
+      "bands_m": [
+        [
+          "3–6",
+          "A"
+        ],
+        [
+          "1.5–3",
+          "B"
+        ],
+        [
+          "1–1.5",
+          "E"
+        ],
+        [
+          "<1 or >6",
+          "CHECK"
+        ]
+      ]
+    },
+    "targets": [
+      "bom_preparation",
+      "documentation"
+    ],
+    "dependencies": [],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "cond; boundaries 3 and 1.5 belong to two bands and are decided by evaluation order",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "type letters match adoption-standard manhole types; not cited"
+    },
+    "uncertainty": [
+      "d = 3 gives A and d = 1.5 gives B only because of the order of the tests"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Confirm the boundary assignments at 1.5 m and 3 m"
+    ]
+  },
+  {
+    "rule_id": "CIV-MS-04",
+    "title": "Pipe diameter read from attribute text",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Create manhole schedule.lsp",
+      "lines": "425-429",
+      "functions": [
+        "c:mscs"
+      ]
+    },
+    "statement": "Pipe diameters are read from attributes P0–P4 by taking characters 3 to 7 of the text (format 'DN' followed by millimetres) and converting to metres.",
+    "inputs": [
+      "attributes P0–P4"
+    ],
+    "parameters": {
+      "format": "DN<mm>"
+    },
+    "targets": [
+      "drafting_housekeeping"
+    ],
+    "dependencies": [
+      "block attribute format"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "(substr text 3 5) * 0.001",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "drafting_habit",
+      "basis": "data held as display text"
+    },
+    "uncertainty": [
+      "Any other text format (e.g. 'Ø375', '375mm') reads as 0 without warning"
+    ],
+    "legacy_defect": {
+      "suspected": true,
+      "description": "Format-dependent parsing fails silently to 0.",
+      "disposition": null
+    },
+    "required_human_ruling": [
+      "In a new platform, store diameter as a number, not text"
+    ]
+  }
+]

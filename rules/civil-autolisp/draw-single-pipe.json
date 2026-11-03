@@ -1,0 +1,239 @@
+[
+  {
+    "rule_id": "CIV-PIPE-01",
+    "title": "Pipe gradient between two manholes",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Draw single pipe.lsp",
+      "lines": "158-174",
+      "functions": [
+        "c:pipe"
+      ]
+    },
+    "statement": "The gradient of a pipe between two manholes is the distance between the manholes divided by the difference of their selected invert levels, expressed as 1 in N with N rounded to the nearest integer. The length is shown to 0.1 m.",
+    "inputs": [
+      "manhole 1: insertion point, selected invert level",
+      "manhole 2: insertion point, selected invert level"
+    ],
+    "parameters": {
+      "gradient_format": "1/N, N integer",
+      "length_precision_m": 0.1
+    },
+    "targets": [
+      "geometry",
+      "documentation"
+    ],
+    "dependencies": [
+      "LM:Round (defined identically here and in 0 - Function library.lsp)"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "grad = dist / |IL2 - IL1|; label uses (itoa (LM:Round grad))",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "drainage gradient notation 1 in N; the formula itself is general"
+    },
+    "exceptions": [
+      "Equal invert levels: the command stops with an alert (no gradient)"
+    ],
+    "uncertainty": [
+      "Distance is taken between block insertion points, which may carry Z; CIV-INT-01 uses flattened points. If manhole blocks are inserted at different Z, the two routines give different gradients for the same pipe."
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Gradient over plan length or true length?"
+    ]
+  },
+  {
+    "rule_id": "CIV-PIPE-02",
+    "title": "Pipe only between manholes of the same system",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Draw single pipe.lsp",
+      "lines": "150-156",
+      "functions": [
+        "c:pipe"
+      ]
+    },
+    "statement": "A pipe may only connect two manholes on the same layer; the layer stands for the drainage system. Otherwise the command stops.",
+    "inputs": [
+      "manhole layers"
+    ],
+    "parameters": {},
+    "targets": [
+      "geometry"
+    ],
+    "dependencies": [
+      "layer naming of manhole blocks (e.g. FW / SW systems)"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "alert 'Selected manholes are in different layer.' and exit",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "external_standard",
+      "basis": "foul and surface water systems kept separate"
+    },
+    "uncertainty": [
+      "Layer stands in for the system: a renamed layer breaks the rule silently"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": []
+  },
+  {
+    "rule_id": "CIV-PIPE-03",
+    "title": "Pipe drawing and label",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Draw single pipe.lsp",
+      "lines": "188-224",
+      "functions": [
+        "c:pipe"
+      ]
+    },
+    "statement": "The pipe is drawn centre to centre on the manholes' layer with a width equal to its diameter. Its label reads '<length>m DN<diameter> @ 1/<N>', text height 0.4, centred above the pipe midpoint at half the pipe width plus 0.15, rotated to read left to right; the text box is the pipe length minus 1.2, or 2 if that is below 1.",
+    "inputs": [
+      "diameter in mm (typed)",
+      "results of CIV-PIPE-01"
+    ],
+    "parameters": {
+      "text_height": 0.4,
+      "label_offset": "diameter/2 + 0.15",
+      "box_width": "length - 1.2, or 2 if below 1",
+      "label_format": "<L>m DN<d> @ 1/<N>"
+    },
+    "targets": [
+      "documentation"
+    ],
+    "dependencies": [],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "pline width = diam/1000; -mtext with R, H 0.400, J BC, W",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "firm_convention",
+      "basis": "drawing presentation"
+    },
+    "uncertainty": [
+      "Box width rule jumps from 1 to 2 when length - 1.2 drops below 1; looks unintended"
+    ],
+    "legacy_defect": {
+      "suspected": true,
+      "description": "Text box width discontinuity (just below 2.2 m pipe length the box widens to 2).",
+      "disposition": null
+    },
+    "required_human_ruling": []
+  },
+  {
+    "rule_id": "CIV-PIPE-04",
+    "title": "Selecting the invert level of a manhole",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Draw single pipe.lsp",
+      "lines": "26-115",
+      "functions": [
+        "get_il_manhole",
+        "get_il"
+      ]
+    },
+    "statement": "A manhole carries up to four invert levels (attributes IL1–IL4). If one is set it is used; if several are set the user picks one.",
+    "inputs": [
+      "manhole block attributes IL1–IL4"
+    ],
+    "parameters": {
+      "attributes": [
+        "IL1",
+        "IL2",
+        "IL3",
+        "IL4"
+      ]
+    },
+    "targets": [
+      "geometry"
+    ],
+    "dependencies": [
+      "get_il_manhole: a second, different definition exists in DRAINAGE - Dynamic manholes.lsp; the one loaded last wins"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "cond cases A–D require IL1..ILn non-zero in sequence",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "unknown",
+      "basis": ""
+    },
+    "uncertainty": [
+      "Behaviour depends on load order between the two definitions of get_il_manhole"
+    ],
+    "legacy_defect": {
+      "suspected": true,
+      "description": "(1) An invert level of exactly 0.000 counts as 'not set'. (2) If the set levels are not contiguous (e.g. IL1 and IL3), no case matches and the global variable IL keeps the previous manhole's value, so the pipe silently uses a wrong level.",
+      "disposition": null
+    },
+    "required_human_ruling": [
+      "Disposition of both suspected defects"
+    ]
+  },
+  {
+    "rule_id": "CIV-PIPE-05",
+    "title": "Minimum gradient warning (planned, not implemented)",
+    "source": {
+      "repo": "https://github.com/dtgoitia/civil-autolisp",
+      "commit": "72d68139d372c84014d160f8e4918f062356349f",
+      "file": "DRAINAGE - Draw single pipe.lsp",
+      "lines": "235",
+      "functions": [
+        "c:pipe"
+      ]
+    },
+    "statement": "Intended: warn when a pipe is flatter than 1 in 150. Present only as a comment; the code does not check it.",
+    "inputs": [],
+    "parameters": {
+      "min_gradient": "1/150"
+    },
+    "targets": [
+      "unresolved"
+    ],
+    "dependencies": [],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "source_comment",
+        "detail": "commented line: if gradient below 1/150, alert 'Low pipe gradient'",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "unknown",
+      "basis": "1/150 is a common minimum for small drains; source not stated"
+    },
+    "uncertainty": [
+      "Intent, not behaviour"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Should the new workflow enforce a minimum gradient, and which value?"
+    ]
+  }
+]
