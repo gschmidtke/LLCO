@@ -1,0 +1,1501 @@
+{
+ "scan": "step-1 static inventory, prototype",
+ "date": "2026-11-03",
+ "tool": "tools/llco_scan.py",
+ "corpus": "corpus/MANIFEST.json",
+ "repos": {
+  "dtgoitia__civil-autolisp": {
+   "licence_file": "LICENSE.md",
+   "files": {
+    "lisp": 165
+   },
+   "lisp_lines": 31700,
+   "commands": 703,
+   "signals": {
+    "commands": 703,
+    "functions": 734,
+    "com_vla": 1781,
+    "command_call": 346,
+    "dcl": 2,
+    "file_io": 54,
+    "reactors": 5,
+    "load_chain": 12,
+    "registry_env": 26,
+    "user_input": 466,
+    "selection": 124,
+    "entity_create": 121,
+    "entity_modify": 9,
+    "sysvars": 629
+   },
+   "per_file": [
+    {
+     "file": "CIVIL - Datum kick.lsp",
+     "lines": 96,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 1,
+     "user_input": 5,
+     "sysvars": 8
+    },
+    {
+     "file": "_entmake_minimum.lsp",
+     "lines": 103,
+     "functions": 3,
+     "entity_create": 11
+    },
+    {
+     "file": "CIVIL - Interpolate level.lsp",
+     "lines": 234,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 18,
+     "command_call": 3,
+     "user_input": 7,
+     "sysvars": 15
+    },
+    {
+     "file": "0 - Dynamic Interpolation.lsp",
+     "lines": 190,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 48,
+     "user_input": 3,
+     "sysvars": 13
+    },
+    {
+     "file": "STRUCTURAL - Create building blocks.lsp",
+     "lines": 64,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 8,
+     "user_input": 3,
+     "selection": 1,
+     "sysvars": 12
+    },
+    {
+     "file": "CIVIL Drainage.lsp",
+     "lines": 230,
+     "commands": 3,
+     "functions": 7,
+     "com_vla": 10,
+     "user_input": 5,
+     "selection": 2
+    },
+    {
+     "file": "_CustomShortcuts.lsp",
+     "lines": 303,
+     "commands": 37,
+     "com_vla": 10,
+     "command_call": 31,
+     "user_input": 8,
+     "selection": 9,
+     "sysvars": 7
+    },
+    {
+     "file": "RRT.lsp",
+     "lines": 142,
+     "commands": 1,
+     "functions": 4,
+     "com_vla": 31,
+     "user_input": 3
+    },
+    {
+     "file": "_CustomEnvironmentVariables.lsp",
+     "lines": 78,
+     "commands": 3,
+     "functions": 2
+    },
+    {
+     "file": "_ManholeSchedule.lsp",
+     "lines": 74,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 2,
+     "command_call": 1,
+     "user_input": 1,
+     "selection": 1
+    },
+    {
+     "file": "RTT.lsp",
+     "lines": 217,
+     "commands": 1,
+     "functions": 5,
+     "com_vla": 30,
+     "user_input": 1
+    },
+    {
+     "file": "CIVIL - Add to level.lsp",
+     "lines": 63,
+     "commands": 1,
+     "functions": 1,
+     "user_input": 2,
+     "entity_modify": 1,
+     "sysvars": 8
+    },
+    {
+     "file": "_AutoLoad.lsp",
+     "lines": 23,
+     "functions": 2,
+     "sysvars": 2
+    },
+    {
+     "file": "_LastCustomShortcuts.lsp",
+     "lines": 6,
+     "commands": 4
+    },
+    {
+     "file": "STRUCTURAL - Coordinate table.lsp",
+     "lines": 154,
+     "commands": 1,
+     "functions": 4,
+     "com_vla": 9,
+     "command_call": 4,
+     "user_input": 2,
+     "selection": 1,
+     "sysvars": 15
+    },
+    {
+     "file": "CIVIL - Load blocks.lsp",
+     "lines": 345,
+     "commands": 57,
+     "functions": 5,
+     "com_vla": 6,
+     "command_call": 12,
+     "file_io": 1,
+     "user_input": 2,
+     "sysvars": 26
+    },
+    {
+     "file": "SortAlphanumeric.lsp",
+     "lines": 239,
+     "functions": 10
+    },
+    {
+     "file": "RT.lsp",
+     "lines": 50,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 2,
+     "user_input": 2,
+     "selection": 1,
+     "sysvars": 8
+    },
+    {
+     "file": "DRAINAGE - Create manhole schedule.lsp",
+     "lines": 724,
+     "commands": 3,
+     "functions": 8,
+     "com_vla": 20,
+     "command_call": 6,
+     "load_chain": 1,
+     "user_input": 6,
+     "selection": 3,
+     "entity_create": 2,
+     "sysvars": 32
+    },
+    {
+     "file": "CIVIL - Setting Out.lsp",
+     "lines": 213,
+     "commands": 6,
+     "functions": 3,
+     "com_vla": 5,
+     "command_call": 4,
+     "user_input": 7,
+     "selection": 3,
+     "sysvars": 6
+    },
+    {
+     "file": "_LongitudinalSections.lsp",
+     "lines": 551,
+     "commands": 1,
+     "functions": 19,
+     "com_vla": 21,
+     "user_input": 5,
+     "selection": 2,
+     "entity_create": 7,
+     "sysvars": 3
+    },
+    {
+     "file": "CIVIL - Road Levels.lsp",
+     "lines": 119,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 1,
+     "user_input": 3,
+     "entity_modify": 1,
+     "sysvars": 8
+    },
+    {
+     "file": "0 - Title Block Update.lsp",
+     "lines": 206,
+     "commands": 1,
+     "functions": 2,
+     "com_vla": 3,
+     "user_input": 3,
+     "sysvars": 11
+    },
+    {
+     "file": "DRAINAGE - Dynamic manholes.lsp",
+     "lines": 452,
+     "commands": 1,
+     "functions": 3,
+     "com_vla": 30,
+     "command_call": 6,
+     "user_input": 15,
+     "sysvars": 32
+    },
+    {
+     "file": "_Profiles.lsp",
+     "lines": 12,
+     "functions": 1,
+     "com_vla": 5
+    },
+    {
+     "file": "_Viewport.lsp",
+     "lines": 59,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 12,
+     "sysvars": 2
+    },
+    {
+     "file": "_RR.lsp",
+     "lines": 70,
+     "commands": 1,
+     "functions": 1,
+     "user_input": 2
+    },
+    {
+     "file": "STRUCTURAL - Live offset.lsp",
+     "lines": 154,
+     "commands": 1,
+     "functions": 2,
+     "com_vla": 18,
+     "user_input": 4,
+     "entity_create": 1,
+     "sysvars": 3
+    },
+    {
+     "file": "_Survey.lsp",
+     "lines": 308,
+     "commands": 3,
+     "functions": 10,
+     "com_vla": 9,
+     "user_input": 2,
+     "selection": 3,
+     "entity_create": 8
+    },
+    {
+     "file": "_Testing.lsp",
+     "lines": 70,
+     "commands": 1,
+     "functions": 2
+    },
+    {
+     "file": "CIVIL - House polylines.lsp",
+     "lines": 130,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 16,
+     "command_call": 4,
+     "user_input": 1,
+     "selection": 1,
+     "sysvars": 11
+    },
+    {
+     "file": "_Input.lsp",
+     "lines": 74,
+     "functions": 1
+    },
+    {
+     "file": "0 - Function library.lsp",
+     "lines": 1789,
+     "commands": 2,
+     "functions": 84,
+     "com_vla": 105,
+     "command_call": 2,
+     "file_io": 5,
+     "load_chain": 1,
+     "registry_env": 3,
+     "user_input": 8,
+     "entity_create": 4,
+     "entity_modify": 1,
+     "sysvars": 13
+    },
+    {
+     "file": "0 - Explode polyline.lsp",
+     "lines": 113,
+     "commands": 1,
+     "functions": 8,
+     "com_vla": 6,
+     "selection": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "CIVIL - Plot Levels.lsp",
+     "lines": 117,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 1,
+     "user_input": 3,
+     "entity_modify": 1,
+     "sysvars": 8
+    },
+    {
+     "file": "_DRAFT.lsp",
+     "lines": 3303,
+     "commands": 226,
+     "functions": 53,
+     "com_vla": 352,
+     "command_call": 112,
+     "file_io": 1,
+     "user_input": 140,
+     "selection": 33,
+     "entity_create": 35,
+     "entity_modify": 3,
+     "sysvars": 109
+    },
+    {
+     "file": "CIVIL - Interpolate level 3D.lsp",
+     "lines": 165,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 24,
+     "command_call": 1,
+     "user_input": 4,
+     "sysvars": 12
+    },
+    {
+     "file": "_PersonalLibrary.lsp",
+     "lines": 4605,
+     "commands": 167,
+     "functions": 99,
+     "com_vla": 250,
+     "command_call": 80,
+     "load_chain": 6,
+     "registry_env": 7,
+     "user_input": 88,
+     "selection": 27,
+     "entity_create": 8,
+     "sysvars": 95
+    },
+    {
+     "file": "DRAINAGE - Draw single pipe.lsp",
+     "lines": 248,
+     "commands": 1,
+     "functions": 4,
+     "com_vla": 6,
+     "command_call": 2,
+     "user_input": 5,
+     "sysvars": 12
+    },
+    {
+     "file": "0 - Reload_my_LISP_library.lsp",
+     "lines": 69,
+     "load_chain": 1
+    },
+    {
+     "file": "_RoadLevels.lsp",
+     "lines": 427,
+     "commands": 2,
+     "functions": 6,
+     "com_vla": 53,
+     "command_call": 1,
+     "user_input": 9,
+     "entity_create": 1,
+     "sysvars": 16
+    },
+    {
+     "file": "_entmake_complete.lsp",
+     "lines": 22,
+     "entity_create": 1
+    },
+    {
+     "file": "_Config.lsp",
+     "lines": 35,
+     "commands": 1,
+     "sysvars": 31
+    },
+    {
+     "file": "CIVIL Menu setup.lsp",
+     "lines": 2
+    },
+    {
+     "file": "Dump folder/SplitString.lsp",
+     "lines": 38,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/StreetLighting.lsp",
+     "lines": 132,
+     "commands": 1,
+     "functions": 6,
+     "com_vla": 6,
+     "command_call": 3,
+     "user_input": 1,
+     "selection": 3,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/RemoveHatchBoundaries.lsp",
+     "lines": 36,
+     "commands": 2,
+     "functions": 2,
+     "command_call": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/AllByLayer.lsp",
+     "lines": 36,
+     "commands": 1,
+     "functions": 2,
+     "com_vla": 11,
+     "command_call": 4,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/UpdatePrivateDrainageLabel.lsp",
+     "lines": 1
+    },
+    {
+     "file": "Dump folder/vla.lsp",
+     "lines": 2380
+    },
+    {
+     "file": "Dump folder/3dOffset.lsp",
+     "lines": 182,
+     "commands": 1,
+     "functions": 4,
+     "com_vla": 18,
+     "command_call": 1,
+     "user_input": 4,
+     "entity_create": 4,
+     "sysvars": 4
+    },
+    {
+     "file": "Dump folder/ManualManholesToLongSection.lsp",
+     "lines": 63,
+     "commands": 4,
+     "com_vla": 1,
+     "user_input": 3,
+     "selection": 1,
+     "entity_create": 1,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/SewerGradient.lsp",
+     "lines": 83,
+     "functions": 1,
+     "user_input": 4
+    },
+    {
+     "file": "Dump folder/GetTrustedPaths.lsp",
+     "lines": 7,
+     "commands": 1
+    },
+    {
+     "file": "Dump folder/LoadLineTypes.lsp",
+     "lines": 9,
+     "commands": 1
+    },
+    {
+     "file": "Dump folder/KtfBreaklinesReport.lsp",
+     "lines": 41,
+     "commands": 2,
+     "functions": 1,
+     "file_io": 2,
+     "registry_env": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/ImportManholeBlocks.lsp",
+     "lines": 111,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 2,
+     "command_call": 2,
+     "user_input": 1,
+     "sysvars": 3
+    },
+    {
+     "file": "Dump folder/ManholeScheduleDiagram.lsp",
+     "lines": 69,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 1,
+     "user_input": 5
+    },
+    {
+     "file": "Dump folder/c3d-GetPipeCoordinates.lsp",
+     "lines": 88,
+     "commands": 2,
+     "functions": 3,
+     "com_vla": 4,
+     "selection": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/WorkingDrawings.lsp",
+     "lines": 13,
+     "commands": 1,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/ErrorTracing.lsp",
+     "lines": 86,
+     "commands": 3,
+     "functions": 3,
+     "file_io": 3,
+     "registry_env": 1,
+     "user_input": 1,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/GardenLevels.lsp",
+     "lines": 117,
+     "commands": 5,
+     "functions": 3,
+     "com_vla": 2,
+     "command_call": 2,
+     "user_input": 6,
+     "selection": 2,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/Window.lsp",
+     "lines": 49,
+     "commands": 1,
+     "functions": 3,
+     "com_vla": 13
+    },
+    {
+     "file": "Dump folder/_Reactors.lsp",
+     "lines": 46,
+     "functions": 2,
+     "reactors": 5
+    },
+    {
+     "file": "Dump folder/ClosedPolylineInnerPoint.lsp",
+     "lines": 127,
+     "functions": 4
+    },
+    {
+     "file": "Dump folder/CopyBlock.lsp",
+     "lines": 74,
+     "functions": 1,
+     "com_vla": 12
+    },
+    {
+     "file": "Dump folder/Ploting.lsp",
+     "lines": 137,
+     "commands": 5,
+     "com_vla": 23,
+     "command_call": 3,
+     "user_input": 1,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/PointUtils.lsp",
+     "lines": 12,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/SupersedingTEMP.lsp",
+     "lines": 70,
+     "commands": 1,
+     "functions": 3,
+     "file_io": 2,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/DateTime.lsp",
+     "lines": 228,
+     "commands": 2,
+     "functions": 6,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/SelectByPolyline.lsp",
+     "lines": 40,
+     "commands": 2,
+     "functions": 1,
+     "user_input": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/Ctb.lsp",
+     "lines": 5
+    },
+    {
+     "file": "Dump folder/LayerFilter.lsp",
+     "lines": 1
+    },
+    {
+     "file": "Dump folder/ManholeScheduleUpdateValues.lsp",
+     "lines": 134,
+     "commands": 3,
+     "functions": 1,
+     "com_vla": 2,
+     "user_input": 2,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/ManholeScheduleUpdateCoordinates.lsp",
+     "lines": 13,
+     "commands": 1,
+     "user_input": 2
+    },
+    {
+     "file": "Dump folder/AutoLoadTest.lsp",
+     "lines": 11,
+     "commands": 2
+    },
+    {
+     "file": "Dump folder/ErrorCodesReference.lsp",
+     "lines": 94
+    },
+    {
+     "file": "Dump folder/Boundaries.lsp",
+     "lines": 77,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 6,
+     "command_call": 2,
+     "user_input": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/PFlatDistance.lsp",
+     "lines": 9,
+     "commands": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/IssueReport.lsp",
+     "lines": 260,
+     "commands": 2,
+     "functions": 5,
+     "com_vla": 2,
+     "user_input": 1,
+     "selection": 2
+    },
+    {
+     "file": "Dump folder/RotateOneByOne.lsp",
+     "lines": 1
+    },
+    {
+     "file": "Dump folder/GrSnapDemo.lsp",
+     "lines": 255,
+     "commands": 3,
+     "functions": 6,
+     "entity_create": 3,
+     "sysvars": 9
+    },
+    {
+     "file": "Dump folder/AverageBySelection.lsp",
+     "lines": 103,
+     "commands": 3,
+     "functions": 3,
+     "user_input": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/MarkupPoints.lsp",
+     "lines": 66,
+     "commands": 2,
+     "functions": 2,
+     "file_io": 2,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/ExternalBrickwork.lsp",
+     "lines": 267,
+     "commands": 4,
+     "functions": 4,
+     "com_vla": 32,
+     "command_call": 1,
+     "user_input": 7,
+     "entity_create": 6,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/SortAlphanumeric.lsp",
+     "lines": 239,
+     "functions": 10
+    },
+    {
+     "file": "Dump folder/LmDynamicBlockFunctions.lsp",
+     "lines": 148,
+     "functions": 9,
+     "com_vla": 35
+    },
+    {
+     "file": "Dump folder/ColourConversion.lsp",
+     "lines": 19,
+     "functions": 1,
+     "com_vla": 3
+    },
+    {
+     "file": "Dump folder/SegmentSide.lsp",
+     "lines": 101,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 4,
+     "user_input": 2
+    },
+    {
+     "file": "Dump folder/BoundingBox.lsp",
+     "lines": 44,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 4,
+     "command_call": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/ReadingASCIIFilesWithAutoLisp.lsp",
+     "lines": 160,
+     "file_io": 11
+    },
+    {
+     "file": "Dump folder/ManholeScheduleChecker.lsp",
+     "lines": 85,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/AutocadAppManagement.lsp",
+     "lines": 27,
+     "commands": 2,
+     "functions": 1,
+     "user_input": 2
+    },
+    {
+     "file": "Dump folder/CutAndFillSet.lsp",
+     "lines": 229,
+     "commands": 6,
+     "functions": 5,
+     "com_vla": 18,
+     "user_input": 6,
+     "selection": 3,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/ConnectPlotDrainage.lsp",
+     "lines": 117,
+     "commands": 5,
+     "com_vla": 12,
+     "command_call": 1,
+     "user_input": 3,
+     "entity_create": 3,
+     "sysvars": 5
+    },
+    {
+     "file": "Dump folder/3dPtClicking.lsp",
+     "lines": 77,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 9,
+     "user_input": 2,
+     "sysvars": 3
+    },
+    {
+     "file": "Dump folder/DeleteAlongPolyline.lsp",
+     "lines": 44,
+     "commands": 2,
+     "functions": 1,
+     "command_call": 3,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/FindDuplicate.lsp",
+     "lines": 70,
+     "commands": 1,
+     "functions": 2,
+     "user_input": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/ImportPlotLevels.lsp",
+     "lines": 32,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/LayerUtilities.lsp",
+     "lines": 37,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/LmColourConversion.lsp",
+     "lines": 191,
+     "functions": 21,
+     "com_vla": 11,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/GoogleMaps.lsp",
+     "lines": 21,
+     "commands": 1
+    },
+    {
+     "file": "Dump folder/DrawPlotLevel.lsp",
+     "lines": 32,
+     "functions": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/LmListManipulation.lsp",
+     "lines": 18,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/__temp.lsp",
+     "lines": 69,
+     "commands": 1,
+     "functions": 2,
+     "command_call": 5,
+     "user_input": 3,
+     "selection": 1,
+     "entity_create": 1,
+     "sysvars": 4
+    },
+    {
+     "file": "Dump folder/MySettings.lsp",
+     "lines": 60,
+     "command_call": 1,
+     "sysvars": 8
+    },
+    {
+     "file": "Dump folder/AutolispDependencyAnalisys.lsp",
+     "lines": 511,
+     "commands": 2,
+     "functions": 12,
+     "file_io": 2
+    },
+    {
+     "file": "Dump folder/CleanLayer.lsp",
+     "lines": 207,
+     "commands": 2,
+     "functions": 3,
+     "com_vla": 6,
+     "user_input": 7,
+     "selection": 2,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/DeleteObjectFromBlock.lsp",
+     "lines": 50,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 6,
+     "command_call": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/3dPolyClick.lsp",
+     "lines": 48,
+     "commands": 2,
+     "command_call": 3,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/Deploy.lsp",
+     "lines": 324,
+     "commands": 2,
+     "functions": 14,
+     "command_call": 2,
+     "file_io": 2,
+     "load_chain": 2,
+     "registry_env": 7,
+     "sysvars": 7
+    },
+    {
+     "file": "Dump folder/InsertBlockVLA.lsp",
+     "lines": 137,
+     "commands": 2,
+     "functions": 2,
+     "com_vla": 10,
+     "command_call": 3,
+     "file_io": 1,
+     "user_input": 1,
+     "sysvars": 10
+    },
+    {
+     "file": "Dump folder/DrawRoadLevel.lsp",
+     "lines": 32,
+     "functions": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/PolylineUtils.lsp",
+     "lines": 219,
+     "functions": 5,
+     "com_vla": 52
+    },
+    {
+     "file": "Dump folder/GrSnapV1-0.lsp",
+     "lines": 255,
+     "functions": 10,
+     "com_vla": 5,
+     "registry_env": 3,
+     "sysvars": 4
+    },
+    {
+     "file": "Dump folder/AngleToGradient.lsp",
+     "lines": 42,
+     "commands": 1,
+     "functions": 2
+    },
+    {
+     "file": "Dump folder/ImportRoadLevels.lsp",
+     "lines": 34,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 3,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/PLDIET.lsp",
+     "lines": 214,
+     "commands": 1,
+     "functions": 1,
+     "command_call": 6,
+     "user_input": 3,
+     "selection": 2,
+     "entity_create": 1,
+     "sysvars": 5
+    },
+    {
+     "file": "Dump folder/ContourUtilities.lsp",
+     "lines": 38,
+     "commands": 2,
+     "functions": 2,
+     "com_vla": 3,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/SubList.lsp",
+     "lines": 41,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/ManholeCoverLevelToInvertLevel.lsp",
+     "lines": 66,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/SelectAlongPolyline.lsp",
+     "lines": 39,
+     "commands": 1,
+     "functions": 1,
+     "user_input": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/TEST1.lsp",
+     "lines": 35,
+     "commands": 2,
+     "com_vla": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/Offset.lsp",
+     "lines": 110,
+     "commands": 2,
+     "functions": 2,
+     "com_vla": 8,
+     "user_input": 3
+    },
+    {
+     "file": "Dump folder/LevelDetection.lsp",
+     "lines": 137,
+     "commands": 1,
+     "functions": 3
+    },
+    {
+     "file": "Dump folder/BlockToCorrectZ.lsp",
+     "lines": 58,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 1,
+     "selection": 1,
+     "entity_modify": 1
+    },
+    {
+     "file": "Dump folder/CustomSystemVariables.lsp",
+     "lines": 40,
+     "commands": 1,
+     "functions": 2,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/LayerManager.lsp",
+     "lines": 123,
+     "commands": 2,
+     "functions": 3,
+     "command_call": 3
+    },
+    {
+     "file": "Dump folder/ManholeSchedule7Edition.lsp",
+     "lines": 239,
+     "commands": 2,
+     "functions": 3,
+     "com_vla": 2,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/ViewportBoundaryToModel.lsp",
+     "lines": 169,
+     "commands": 1,
+     "functions": 6,
+     "com_vla": 4,
+     "command_call": 4,
+     "selection": 1,
+     "entity_create": 1,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/0 - Function library.lsp",
+     "lines": 1736,
+     "commands": 2,
+     "functions": 83,
+     "com_vla": 101,
+     "command_call": 2,
+     "file_io": 5,
+     "load_chain": 1,
+     "registry_env": 3,
+     "user_input": 8,
+     "entity_create": 4,
+     "entity_modify": 1,
+     "sysvars": 13
+    },
+    {
+     "file": "Dump folder/KtfLevelBlocks.lsp",
+     "lines": 46,
+     "commands": 2,
+     "functions": 2,
+     "com_vla": 2,
+     "command_call": 1,
+     "selection": 1,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/Tabs.lsp",
+     "lines": 54,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 17,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/GridLabels.lsp",
+     "lines": 31,
+     "commands": 1,
+     "com_vla": 2,
+     "user_input": 2
+    },
+    {
+     "file": "Dump folder/ImportBlockFromOtherDrawing.lsp",
+     "lines": 33,
+     "commands": 1,
+     "functions": 2,
+     "com_vla": 12,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/FileHandling.lsp",
+     "lines": 66,
+     "commands": 2,
+     "functions": 1,
+     "file_io": 3,
+     "registry_env": 1
+    },
+    {
+     "file": "Dump folder/TextHandling.lsp",
+     "lines": 131,
+     "commands": 2,
+     "functions": 2,
+     "com_vla": 3,
+     "command_call": 1,
+     "user_input": 2,
+     "entity_create": 3,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/IndexToTrueColor.lsp",
+     "lines": 96,
+     "commands": 2,
+     "functions": 1,
+     "com_vla": 48,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/Supersed.lsp",
+     "lines": 114,
+     "commands": 2,
+     "functions": 3,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/LinearDrainage.lsp",
+     "lines": 91,
+     "commands": 1,
+     "functions": 2,
+     "com_vla": 8,
+     "user_input": 2,
+     "entity_create": 2
+    },
+    {
+     "file": "Dump folder/variantListLibrary.lsp",
+     "lines": 211,
+     "functions": 14,
+     "com_vla": 27
+    },
+    {
+     "file": "Dump folder/Deployment.lsp",
+     "lines": 35,
+     "commands": 1,
+     "functions": 3,
+     "com_vla": 2
+    },
+    {
+     "file": "Dump folder/DynamicInterpolationRefactoring.lsp",
+     "lines": 181,
+     "commands": 1,
+     "functions": 3,
+     "user_input": 3,
+     "sysvars": 6
+    },
+    {
+     "file": "Dump folder/ControlMenus.lsp",
+     "lines": 40,
+     "commands": 3,
+     "com_vla": 4,
+     "command_call": 1
+    },
+    {
+     "file": "Dump folder/GullyCatchmentArea.lsp",
+     "lines": 115,
+     "commands": 3,
+     "functions": 2,
+     "com_vla": 3,
+     "command_call": 3,
+     "user_input": 3,
+     "selection": 1,
+     "sysvars": 2
+    },
+    {
+     "file": "Dump folder/ViewportZoomControlGrread.lsp",
+     "lines": 42,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 4,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/GetGroundModelBoundary.lsp",
+     "lines": 250,
+     "commands": 2,
+     "functions": 8,
+     "user_input": 2,
+     "selection": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "Dump folder/CleanAllLayoutTabs.lsp",
+     "lines": 27,
+     "commands": 1,
+     "com_vla": 6,
+     "user_input": 1
+    },
+    {
+     "file": "Dump folder/Purge.lsp",
+     "lines": 21,
+     "commands": 1
+    },
+    {
+     "file": "Dump folder/Testing.lsp",
+     "lines": 133,
+     "commands": 2,
+     "functions": 5
+    },
+    {
+     "file": "Dump folder/UpdateDimensionContent.lsp",
+     "lines": 37,
+     "commands": 2,
+     "functions": 1,
+     "selection": 1
+    },
+    {
+     "file": "Dump folder/_Learning.lsp",
+     "lines": 61,
+     "commands": 1,
+     "functions": 1,
+     "com_vla": 4,
+     "file_io": 1
+    },
+    {
+     "file": "Dump folder/CreatePlotLevel.lsp",
+     "lines": 2
+    },
+    {
+     "file": "Dump folder/CaptureEscWithGrread.lsp",
+     "lines": 32
+    },
+    {
+     "file": "Dump folder/LmAttributeFunctions.lsp",
+     "lines": 54,
+     "functions": 4,
+     "com_vla": 12
+    },
+    {
+     "file": "Dump folder/LspTreeTestDirectorySmall/file1.lsp",
+     "lines": 9,
+     "functions": 4
+    },
+    {
+     "file": "Dump folder/downloaded/LayerFilter.lsp",
+     "lines": 421,
+     "commands": 2,
+     "functions": 5,
+     "com_vla": 51,
+     "dcl": 2,
+     "file_io": 13,
+     "sysvars": 1
+    },
+    {
+     "file": "Dump folder/downloaded/variants.lsp",
+     "lines": 211,
+     "functions": 14,
+     "com_vla": 27
+    },
+    {
+     "file": "Dump folder/untested-routines/InsertPermavoid.lsp",
+     "lines": 55,
+     "commands": 4,
+     "command_call": 3,
+     "user_input": 2,
+     "entity_create": 4,
+     "sysvars": 3
+    },
+    {
+     "file": "Dump folder/LspTreeTestDirectory/LspTreeTestFile.lsp",
+     "lines": 17,
+     "commands": 1,
+     "functions": 1
+    },
+    {
+     "file": "Dump folder/LspTreeTestDirectory/LspTreeTestFile2.lsp",
+     "lines": 28,
+     "commands": 3,
+     "functions": 1,
+     "sysvars": 1
+    },
+    {
+     "file": "Requests/moff.lsp",
+     "lines": 39,
+     "commands": 1,
+     "com_vla": 12,
+     "user_input": 2,
+     "selection": 1
+    },
+    {
+     "file": "Requests/cnla.lsp",
+     "lines": 39,
+     "commands": 1,
+     "functions": 1,
+     "user_input": 1
+    },
+    {
+     "file": "Requests/pex.lsp",
+     "lines": 13,
+     "commands": 1,
+     "command_call": 2,
+     "user_input": 1
+    },
+    {
+     "file": "Requests/plotLevels.lsp",
+     "lines": 22,
+     "commands": 1,
+     "user_input": 2
+    }
+   ]
+  },
+  "hassin070__MEP-AUTOCAD-Scripts": {
+   "licence_file": "LICENSE",
+   "files": {
+    "lisp": 3,
+    "text": 1
+   },
+   "lisp_lines": 198,
+   "commands": 6,
+   "signals": {
+    "commands": 6,
+    "functions": 1,
+    "com_vla": 8,
+    "command_call": 1,
+    "dcl": 0,
+    "file_io": 0,
+    "reactors": 0,
+    "load_chain": 0,
+    "registry_env": 0,
+    "user_input": 10,
+    "selection": 2,
+    "entity_create": 3,
+    "entity_modify": 0,
+    "sysvars": 2
+   },
+   "per_file": [
+    {
+     "file": "AutoDeviceTagger_Corrected.lsp",
+     "lines": 99,
+     "commands": 4,
+     "functions": 1,
+     "com_vla": 5,
+     "user_input": 3,
+     "selection": 1,
+     "entity_create": 1
+    },
+    {
+     "file": "TotalLine.lsp",
+     "lines": 52,
+     "commands": 1,
+     "com_vla": 3,
+     "user_input": 1,
+     "selection": 1,
+     "entity_create": 1,
+     "sysvars": 2
+    },
+    {
+     "file": "Sprinkler Layout.lsp",
+     "lines": 47,
+     "commands": 1,
+     "command_call": 1,
+     "user_input": 6,
+     "entity_create": 1
+    }
+   ]
+  },
+  "kruuger__GT-CAD": {
+   "licence_file": "LICENSE",
+   "files": {
+    "lisp": 1
+   },
+   "lisp_lines": 3923,
+   "commands": 0,
+   "signals": {
+    "commands": 0,
+    "functions": 144,
+    "com_vla": 148,
+    "command_call": 0,
+    "dcl": 6,
+    "file_io": 19,
+    "reactors": 0,
+    "load_chain": 0,
+    "registry_env": 8,
+    "user_input": 3,
+    "selection": 2,
+    "entity_create": 15,
+    "entity_modify": 6,
+    "sysvars": 21
+   },
+   "per_file": [
+    {
+     "file": "Libraries/CADPL-Pack-v1.lsp",
+     "lines": 3923,
+     "functions": 144,
+     "com_vla": 148,
+     "dcl": 6,
+     "file_io": 19,
+     "registry_env": 8,
+     "user_input": 3,
+     "selection": 2,
+     "entity_create": 15,
+     "entity_modify": 6,
+     "sysvars": 21
+    }
+   ]
+  },
+  "masterblogger__AutoLispFurniture": {
+   "licence_file": "LICENSE",
+   "files": {
+    "lisp": 1
+   },
+   "lisp_lines": 857,
+   "commands": 1,
+   "signals": {
+    "commands": 1,
+    "functions": 22,
+    "com_vla": 0,
+    "command_call": 7,
+    "dcl": 0,
+    "file_io": 0,
+    "reactors": 0,
+    "load_chain": 0,
+    "registry_env": 0,
+    "user_input": 9,
+    "selection": 0,
+    "entity_create": 6,
+    "entity_modify": 0,
+    "sysvars": 0
+   },
+   "per_file": [
+    {
+     "file": "furniture_3d.lsp",
+     "lines": 857,
+     "commands": 1,
+     "functions": 22,
+     "command_call": 7,
+     "user_input": 9,
+     "entity_create": 6
+    }
+   ]
+  },
+  "smallcluster__Autolisps": {
+   "licence_file": "LICENSE",
+   "files": {
+    "lisp": 1
+   },
+   "lisp_lines": 130,
+   "commands": 1,
+   "signals": {
+    "commands": 1,
+    "functions": 5,
+    "com_vla": 0,
+    "command_call": 2,
+    "dcl": 0,
+    "file_io": 0,
+    "reactors": 0,
+    "load_chain": 0,
+    "registry_env": 0,
+    "user_input": 4,
+    "selection": 0,
+    "entity_create": 0,
+    "entity_modify": 0,
+    "sysvars": 2
+   },
+   "per_file": [
+    {
+     "file": "barc_r.lsp",
+     "lines": 130,
+     "commands": 1,
+     "functions": 5,
+     "command_call": 2,
+     "user_input": 4,
+     "sysvars": 2
+    }
+   ]
+  }
+ }
+}
