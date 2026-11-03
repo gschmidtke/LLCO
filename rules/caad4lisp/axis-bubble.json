@@ -1,0 +1,60 @@
+[
+  {
+    "rule_id": "C4L-DOC-01",
+    "title": "Axis-end bubble: circle at the picked-nearest end, label centered",
+    "source": {
+      "repo": "https://github.com/caadxyz/caad4lisp",
+      "commit": "393eaa7893bdbf307a3615573fe22a8c1e2b9412",
+      "file": "src/bubble.lisp",
+      "lines": "12-93",
+      "functions": ["c:bubble", "draw_bubble"]
+    },
+    "statement": "Each axis line carries an identification bubble at one end: a circle of user-entered diameter, centered on the axis line at the endpoint nearest to the user's pick point, offset outward along the axis direction by half the diameter (so the circle sits tangent to the axis end), with the label text middle-justified at the circle center at 0.6 times the diameter in height, rotation 0. Bubbles are drawn on a dedicated layer TAL_BUBBLE created on demand; CMDECHO and CLAYER are meant to be restored after the command.",
+    "inputs": [
+      "bubble diameter (getdist)",
+      "axis line entity and pick point (entsel; entity must be a LINE or the command aborts)",
+      "label text (getstring)"
+    ],
+    "parameters": {
+      "text_height_factor": 0.6,
+      "text_rotation_degrees": 0,
+      "layer": "TAL_BUBBLE",
+      "center_offset_outward": "diameter / 2"
+    },
+    "targets": ["documentation"],
+    "dependencies": [
+      "LINE entity DXF groups 10 (start) and 11 (end)",
+      "command calls: _.layer (new/set), _.circle, ._text (_j _middle)",
+      "angle, distance, polar (built-in)",
+      "getvar/setvar: cmdecho, clayer"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "Nearest-end test lines 77-80 (distance from pick point to both endpoints; center polar-offset outward by cap/2); text call line 86 (middle justification, height 0.6*cap, rotation 0); layer handling lines 23-24; restore lines 27-28.",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "drafting_habit",
+      "basis": "Circled axis-end labels resemble common structural-drafting practice, but no standard document is cited in the estate or identified by LLCO. Per PM review of 2026-11-03: an external_standard claim requires a named standard with evidence; absent that, the claim is withdrawn to drafting_habit (the estate's own annotation habit). Upgrade requires naming the standard and verifying the estate follows it."
+    },
+    "exceptions": ["Equal distances (pick exactly at the segment midpoint): the (< dist1 dist2) test takes the endpoint-2 branch by default (uncorroborated reading)"],
+    "uncertainty": [
+      "Load-time vs command-time state (observed code path): CMDECHO and CLAYER are captured at FILE LOAD time (lines 12-15), not at command start — the restore target is the load-time value if the environment changed in between",
+      "Cancel/error restoration (observed code path): the not-a-LINE guard (lines 46-52) calls (quit), aborting c:bubble before its restore lines run",
+      "Globals (observed code path): cap, aks, pp, aks_hand, acd_en, bh and the point variables are not declared local; draw_bubble reuses the global cap silently between runs; all definitions share the single AutoLISP namespace (the estate's (in-package :caad4lisp) forms simulate namespaces AutoLISP does not have)"
+    ],
+    "legacy_defect": {
+      "suspected": true,
+      "description": "Suspected defect (impact, not existence): environment restore is believed defective on two paths — (1) capture at load time instead of command start may restore stale values; (2) the (quit) guard skips restore entirely, suspected to leave CMDECHO at 1 and CLAYER on TAL_BUBBLE. The existence of both code paths is observed (static reading); the actual runtime impact on variables needs an AutoCAD recorded run.",
+      "disposition": null
+    },
+    "required_human_ruling": [
+      "Confirm intended restore semantics (load-time vs command-time capture) with the estate owner before any modernization.",
+      "Label rotation is 0 regardless of axis angle (horizontal text on vertical axes): firm convention or oversight?",
+      "If an external drafting standard is intended to govern axis bubbles, name it and verify; otherwise this record stays drafting_habit."
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "rule_id": "C4L-WAL-01",
+    "title": "Double-line wall from a picked point chain, asymmetric widths, mitred corners, separate LINE entities",
+    "source": {
+      "repo": "https://github.com/caadxyz/caad4lisp",
+      "commit": "393eaa7893bdbf307a3615573fe22a8c1e2b9412",
+      "file": "src/wall.lisp",
+      "lines": "60-173",
+      "functions": ["C:Wall-Dline", "wall-grdraw", "getpointlist", "segxlist", "intlst"]
+    },
+    "statement": "A wall drawn from a chain of picked points is represented by two parallel line sets: each segment of the chain is offset to one side by width w1 (10 drawing units) and to the other side by width w2 (20 drawing units), measured perpendicular to the segment direction; at each change of direction the two adjacent offset segments are extended to their infinite-line intersection (mitre), and the resulting vertex chains are drawn as separate LINE entities — one LINE entity per segment, not a polyline (Geom-EntmakeLines creates each via entmake with DXF 0 \"LINE\", start 10, end 11; src/geom.lisp lines 76-95, read at this commit). Wall widths are fixed constants in this version; the string 'set the wall width' at line 64 indicates user input was planned but not implemented. The author's commented-out Geom-EntmakexPolyline calls (src/wall.lisp lines 168-169) show an earlier polyline output was consciously replaced by separate LINEs (lines 170-171 active).",
+    "inputs": ["chain of picked points (first point, then repeated next points until Enter)"],
+    "parameters": {
+      "w1_offset_side1": "10 (hardcoded, drawing units)",
+      "w2_offset_side2": "20 (hardcoded, drawing units)",
+      "preview_vector_color": 251
+    },
+    "targets": ["geometry"],
+    "dependencies": [
+      "Geom-EntmakeLines (src/geom.lisp 76-95, READ at pinned commit): one separate LINE entity per consecutive point pair via entmake",
+      "Geom-EntmakexPolyline (src/geom.lisp, entmakex LWPOLYLINE) — present but commented out at the call site; documents the author's output choice",
+      "getpoint, grdraw (preview vectors drawn during point pick)",
+      "polar, angle, inters (built-in geometry functions)",
+      "mapcar, foreach, nth, append, reverse, cdr (list operations)"
+    ],
+    "evidence_status": "insufficient",
+    "evidence": [
+      {
+        "kind": "static_reading",
+        "detail": "Widths hardcoded at src/wall.lisp line 65 ((setq w1 10 w2 20)); offsets via polar at +pi/2 (side 1) and +pi/2*3 (side 2) from each segment angle (segxlist, lines 93-113); corners via (inters p1 p2 p3 p4 nil), the infinite-line form (intlst, lines 116-138); two vertex chains passed to Geom-EntmakeLines at lines 170-171.",
+        "run_id": null
+      },
+      {
+        "kind": "static_reading",
+        "detail": "Geom-EntmakeLines body read at src/geom.lisp lines 76-95: pairs consecutive points, then entmake per pair with (cons 0 \"LINE\"), (cons 10 p0), (cons 11 p1). Upgrades the earlier 'assumed from call name' dependency note to a read dependency (finding F1 of 2026-11-03-mis-llco-caad4lisp-kernels-001.md is withdrawn; the files are regular files at this commit and the API error was a connector artifact).",
+        "run_id": null
+      },
+      {
+        "kind": "source_comment",
+        "detail": "src/wall.lisp lines 168-169 hold commented-out (Geom-EntmakexPolyline (intlst seg1list) 0) / (seg2list) calls immediately above the active Geom-EntmakeLines calls (170-171): the author's own record of switching the output representation from LWPOLYLINE to separate LINEs.",
+        "run_id": null
+      }
+    ],
+    "authority": {
+      "claimed": "drafting_habit",
+      "basis": "no comment or document states a firm convention; the two widths are unexplained constants"
+    },
+    "exceptions": ["Single-segment chain: intlst's repeat count is (length/2 - 1) = 0, so no intersection is computed and the segment's own offset endpoints are used (uncorroborated reading)"],
+    "uncertainty": [
+      "Which physical side w1 lands on depends on the picked point order; left/right naming unverified without a recorded run",
+      "Adjacent parallel or 180-degree-reversed segments: (inters ... nil) returns nil in AutoLISP (documented semantics of the extended-intersection form with nil onSegs argument), which would leave a nil vertex in the chain passed to entmake — the resulting entity or error has not been observed; needs an AutoCAD recorded run before any reuse of this kernel",
+      "No run of C:Wall-Dline exists in LLCO evidence; all geometry claims above are static readings of executed code paths only"
+    ],
+    "legacy_defect": null,
+    "required_human_ruling": [
+      "Are 10 / 20 real production values (e.g. half-thicknesses of a specific wall build-up) or placeholders? Determines whether the rule can claim firm_convention authority.",
+      "Nil-vertex behavior on parallel/reversed adjacent segments needs an AutoCAD recorded run before any reuse of this kernel."
+    ]
+  }
+]
