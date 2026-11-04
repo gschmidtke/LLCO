@@ -1,0 +1,158 @@
+{
+  "goal_id": "LLCO-GR-example-0001",
+  "title": "Hypothetical example: produce a purchase-unit BOM for every sold option combination",
+  "record_kind": "hypothetical",
+  "hypothetical_notice": "Illustration only, invented end to end. No estate was observed; this record is NOT evidence of any real firm, routine or output. It exists to exercise the schema's claim/choice/cross_output_consistency/coverage/reconciliation shapes for a future option->BOM estate. All invented content is marked [HYPOTHETICAL].",
+  "related_rule_records": [],
+  "claims": {
+    "behaviour": {
+      "statement": "[HYPOTHETICAL] The estate solves a lot as an option set (Boolean compatibility rules over two scopes), then writes the BOM by counting block inserts in the solved drawing.",
+      "status": "insufficient",
+      "note": "No recorded runs; the behaviour statement itself is invented.",
+      "evidence": [
+        {
+          "kind": "historical_output",
+          "detail": "[HYPOTHETICAL] A released BOM for one sold lot exists in the story; no real artifact.",
+          "run_id": null,
+          "confidence": "low"
+        },
+        {
+          "kind": "owner_statement",
+          "detail": "[HYPOTHETICAL] The estate owner states in the story that the BOM writer ran on every lot. Capped at medium confidence by the schema (owner statements never reach high).",
+          "run_id": null,
+          "confidence": "medium"
+        }
+      ]
+    },
+    "purpose": {
+      "statement": "[HYPOTHETICAL] Candidate: the estate exists so that every sold option combination yields a consistent, purchase-ready materials list without re-keying geometry into estimating. Beneficiary: the firm's purchasing.",
+      "status": "insufficient",
+      "note": "Even inside the story there is no process-owner ruling; matching outputs would never confirm this purpose (LOG-0023).",
+      "evidence": []
+    },
+    "correctness": {
+      "statement": "[HYPOTHETICAL] Unknown; QA records would decide.",
+      "status": "insufficient",
+      "evidence": []
+    }
+  },
+  "authority": {
+    "basis": "stakeholder_choice",
+    "relaxable_by": "firm",
+    "basis_note": "[HYPOTHETICAL] Option and BOM conventions are the firm's own choices."
+  },
+  "concerns": [
+    {
+      "statement": "The BOM lists purchase units for the selected option set.",
+      "concern": "outcome"
+    },
+    {
+      "statement": "An option set is only solved when all compatibility rules pass (the '-SOLVED' state).",
+      "concern": "condition"
+    },
+    {
+      "statement": "Option selections are stored as block attributes in the drawing.",
+      "concern": "means",
+      "means_reason": "era_constraint"
+    },
+    {
+      "statement": "Quantities are derived by counting block inserts in the solved drawing.",
+      "concern": "means",
+      "means_reason": "era_constraint"
+    }
+  ],
+  "choices": [
+    {
+      "choice_id": "OPT-GARAGE",
+      "statement": "[HYPOTHETICAL] A garage may be selected or not, per the catalogue.",
+      "scope": "catalogue_availability",
+      "status": "assumed",
+      "note": "[HYPOTHETICAL] Catalogue-availability scope: what can be sold at all."
+    },
+    {
+      "choice_id": "COMP-GARAGE-DOOR",
+      "statement": "[HYPOTHETICAL] Selecting the garage requires the wide door type.",
+      "scope": "object_rule",
+      "status": "open",
+      "note": "[HYPOTHETICAL] Object-rule scope: what must change inside the document when a choice is made. Open, so it must surface in pending_user."
+    }
+  ],
+  "required_outputs": [
+    "as-solved plan set",
+    "BOM by purchase unit",
+    "option list as sold"
+  ],
+  "cross_output_consistency": [
+    {
+      "invariant": "[HYPOTHETICAL] BOM type counts equal the counts derived from the same solved drawing.",
+      "read_back": "[HYPOTHETICAL] Re-derive counts from the released solved drawing; compare with the released BOM; differences must be explained."
+    },
+    {
+      "invariant": "[HYPOTHETICAL] The option list attached to the contract equals the option set recorded in the solved drawing.",
+      "read_back": "[HYPOTHETICAL] Read back both artifacts and compare as sets."
+    }
+  ],
+  "acceptance": {
+    "basis": "[HYPOTHETICAL] Released historical lot documents (plans + BOM) as reference outputs.",
+    "element_scope": "[HYPOTHETICAL] Blocks/objects counted by the BOM writer; elements outside its scope (e.g. annotations) excluded and stated."
+  },
+  "reconciliation": [
+    {
+      "case_id": "HYP-001",
+      "description": "[HYPOTHETICAL] One historical lot: standard plan with garage and fireplace selected.",
+      "outputs_covered": ["as-solved plan set", "BOM by purchase unit"],
+      "choices_covered": ["OPT-GARAGE"],
+      "boundaries_tested": ["garage selected and not selected"],
+      "runner": "[HYPOTHETICAL] second-runner re-run pending",
+      "result": "pending"
+    }
+  ],
+  "coverage": [
+    {
+      "what": "[HYPOTHETICAL] Compatibility checking between selected options (the solve step).",
+      "disposition": "undecided",
+      "authority": "open",
+      "reason": "[HYPOTHETICAL] No successor selected; even where a target platform offers configuration mechanisms, native coverage would require versioned primary-source evidence and a purpose ruling."
+    },
+    {
+      "what": "[HYPOTHETICAL] BOM generation from the solved geometry.",
+      "disposition": "undecided",
+      "authority": "open",
+      "reason": "[HYPOTHETICAL] Live schedules in a BIM tool are a candidate native coverage; not claimed without versioned evidence and ruling.",
+      "evidence": [
+        {
+          "kind": "governing_document",
+          "detail": "[HYPOTHETICAL] Illustrates the evidence kind a future record would use: a versioned primary source naming the platform feature.",
+          "run_id": null,
+          "source_ref": "https://help.autodesk.com/view/RVT/2024/ENU/ (illustrative pointer only, not a recorded coverage proof)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "what": "[HYPOTHETICAL] Regenerating the layer table before extraction.",
+      "disposition": "retire",
+      "authority": "[HYPOTHETICAL] estate owner",
+      "reason": "[HYPOTHETICAL] Drafting housekeeping assumed covered natively by any modern target; kept here only as a format example of a retire item with reason and authority.",
+      "evidence": []
+    },
+    {
+      "what": "[HYPOTHETICAL] Waste factors applied to purchase units.",
+      "disposition": "uncovered_gap",
+      "authority": "open",
+      "reason": "[HYPOTHETICAL] Known in the story to live in a spreadsheet outside the estate; recorded so it is never silent."
+    }
+  ],
+  "pending_user": [
+    "[HYPOTHETICAL] Purpose ruling by a named process owner: none exists even in the story.",
+    "[HYPOTHETICAL] The open compatibility rule (COMP-GARAGE-DOOR) blocks any binding output that depends on it until decided."
+  ],
+  "version": "0.1",
+  "history": [
+    {
+      "date": "2026-11-04",
+      "author": "Mis (DEVELOPER)",
+      "change": "Draft v0.1 hypothetical fixture; invented content marked [HYPOTHETICAL] throughout; schema shape illustration per USG direction legacy-automation-purpose-recovery.md (LOG-0023)."
+    }
+  ]
+}
