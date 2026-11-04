@@ -1,0 +1,52 @@
+{
+  "goal_id": "LLCO-GR-test-0001",
+  "title": "minimal valid template",
+  "record_kind": "recovered",
+  "source": {
+    "repo": "r",
+    "commit": "c",
+    "file": "f",
+    "lines": "1-1"
+  },
+  "claims": {
+    "behaviour": {
+      "statement": "s",
+      "status": "insufficient",
+      "evidence": []
+    },
+    "purpose": {
+      "statement": "s",
+      "status": "insufficient",
+      "evidence": []
+    },
+    "correctness": {
+      "statement": "s",
+      "status": "insufficient",
+      "evidence": []
+    }
+  },
+  "authority": {
+    "basis": "open"
+  },
+  "concerns": [
+    {
+      "statement": "s",
+      "concern": "means"
+    }
+  ],
+  "coverage": [
+    {
+      "what": "w",
+      "disposition": "undecided",
+      "reason": "r"
+    }
+  ],
+  "version": "0.1",
+  "history": [
+    {
+      "date": "2026-11-04",
+      "author": "a",
+      "change": "c"
+    }
+  ]
+}

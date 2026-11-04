@@ -1,0 +1,125 @@
+{
+  "goal_id": "LLCO-GR-caad4lisp-0001",
+  "title": "Candidate goal: let a draughtsman lay out a double-line wall by picking its centreline chain",
+  "record_kind": "recovered",
+  "source": {
+    "repo": "https://github.com/caadxyz/caad4lisp",
+    "commit": "393eaa7893bdbf307a3615573fe22a8c1e2b9412",
+    "file": "src/wall.lisp",
+    "lines": "60-173",
+    "functions": ["C:Wall-Dline", "wall-grdraw", "getpointlist", "segxlist", "intlst"]
+  },
+  "related_rule_records": ["C4L-WAL-01"],
+  "claims": {
+    "behaviour": {
+      "statement": "C:Wall-Dline turns an interactively picked point chain into two parallel LINE chains offset w1=10 and w2=20 perpendicular to each segment, extended to infinite-line intersections at each direction change, one LINE entity per segment (see rule record C4L-WAL-01).",
+      "status": "insufficient",
+      "note": "Static readings only; no recorded run of C:Wall-Dline exists (probe velisp-002 covers geom.lisp kernels, not wall.lisp; execution unverified). Evidence list is deliberately sparse: LLCO goal records are evidence-limited.",
+      "evidence": [
+        {
+          "kind": "static_reading",
+          "detail": "Widths hardcoded w1 10 / w2 20 at src/wall.lisp:65; offsets via polar +/- pi/2 (segxlist, 93-113); mitres via (inters ... nil) extended form (intlst, 116-138); two vertex chains handed to Geom-EntmakeLines (170-171).",
+          "run_id": null,
+          "source_ref": "https://github.com/caadxyz/caad4lisp@393eaa7893bdbf307a3615573fe22a8c1e2b9412"
+        },
+        {
+          "kind": "source_comment",
+          "detail": "Commented-out Geom-EntmakexPolyline calls at wall.lisp:168-169 above the active Geom-EntmakeLines calls at 170-171: the author's own record of switching LWPOLYLINE output to separate LINE entities.",
+          "run_id": null,
+          "source_ref": "https://github.com/caadxyz/caad4lisp@393eaa7893bdbf307a3615573fe22a8c1e2b9412"
+        }
+      ]
+    },
+    "purpose": {
+      "statement": "Candidate (ai_generated): C:Wall-Dline exists so a draughtsman can produce plan linework for both faces of a wall quickly and consistently, instead of hand-drawing parallel wall lines. Beneficiary: the draughtsman producing plans.",
+      "status": "insufficient",
+      "note": "Supporting evidence only. No named process owner exists for this public development-alpha library, so the purpose cannot be confirmed under the human-authority rule (LOG-0023); it stays a candidate.",
+      "evidence": [
+        {
+          "kind": "static_reading",
+          "detail": "Interactive chain entry with live grdraw preview and immediate geometry output indicates a drafting-speed tool, not a data exchange.",
+          "run_id": null,
+          "source_ref": "https://github.com/caadxyz/caad4lisp@393eaa7893bdbf307a3615573fe22a8c1e2b9412"
+        },
+        {
+          "kind": "source_comment",
+          "detail": "'set the wall width' prompt string (wall.lisp:64) shows production use with variable widths was intended, i.e. a real drawing task rather than a demo.",
+          "run_id": null,
+          "source_ref": "https://github.com/caadxyz/caad4lisp@393eaa7893bdbf307a3615573fe22a8c1e2b9412"
+        }
+      ]
+    },
+    "correctness": {
+      "statement": "Unknown whether 10/20-unit double lines are the correct wall representation for any process: no specification, standard or QA record exists in the repository.",
+      "status": "insufficient",
+      "note": "No governing document; nothing to evaluate against.",
+      "evidence": []
+    }
+  },
+  "authority": {
+    "basis": "assumption",
+    "relaxable_by": "firm",
+    "basis_note": "Rule record C4L-WAL-01 claims drafting_habit (no comment or document states a firm convention; the two widths are unexplained constants). Mapped per the USG proposal's mapping table: drafting habit -> preference or assumption; recorded as assumption, relaxable by the estate owner."
+  },
+  "concerns": [
+    {
+      "statement": "The plan shows both wall faces as two parallel line chains, offset asymmetrically (10 / 20 drawing units) from the picked chain, mitred at each change of direction.",
+      "concern": "outcome"
+    },
+    {
+      "statement": "The picked chain is entered interactively with a live preview; the two widths are fixed constants in this version.",
+      "concern": "condition"
+    },
+    {
+      "statement": "Geometry is emitted as separate LINE entities via entmake, one per segment, not a polyline.",
+      "concern": "means",
+      "means_reason": "platform_mechanism"
+    },
+    {
+      "statement": "Corners are computed as infinite-line intersections of adjacent offset segments (inters extended form).",
+      "concern": "means",
+      "means_reason": "era_constraint"
+    }
+  ],
+  "required_outputs": [
+    "plan linework representing both wall faces for every wall in the chain"
+  ],
+  "coverage": [
+    {
+      "what": "Producing double-line wall geometry from an interactively picked chain.",
+      "disposition": "undecided",
+      "ref": "C4L-WAL-01",
+      "authority": "open",
+      "reason": "Candidate native coverage in a BIM successor (wall objects model wall geometry directly) is NOT claimed: no versioned primary-source evidence has been recorded, the estate has no process owner to rule the purpose, and a successor target has not been selected. Blocked pending both.",
+      "evidence": [
+        {
+          "kind": "static_reading",
+          "detail": "Coverage assessment impossible beyond code structure; see rule record C4L-WAL-01 for the kernel reading.",
+          "run_id": null,
+          "source_ref": "https://github.com/caadxyz/caad4lisp@393eaa7893bdbf307a3615573fe22a8c1e2b9412"
+        }
+      ]
+    },
+    {
+      "what": "The separate-LINE / entmake output representation and the interactive grdraw preview.",
+      "disposition": "undecided",
+      "ref": "C4L-WAL-01",
+      "authority": "open",
+      "reason": "Looks like platform mechanism / era constraint (candidate retire in a successor), but retirement would follow only after the purpose ruling and successor selection; not decided here.",
+      "evidence": []
+    }
+  ],
+  "pending_user": [
+    "Are 10 / 20 real production values (half-thicknesses of a specific wall build-up) or placeholders? (from rule record C4L-WAL-01)",
+    "Nil-vertex behavior on parallel/reversed adjacent segments needs an AutoCAD recorded run before any reuse of this kernel.",
+    "No named process owner exists for this estate; the purpose claim cannot be confirmed under the human-authority rule (caad4lisp is a public development-alpha library)."
+  ],
+  "version": "0.1",
+  "history": [
+    {
+      "date": "2026-11-04",
+      "author": "Mis (DEVELOPER)",
+      "change": "Draft v0.1 fixture from corrected rule record C4L-WAL-01 (LLCO branch mis-caad4lisp-records-2026-11-03, commit 817b019); evidence limited to static readings and source comments; no run evidence."
+    }
+  ]
+}

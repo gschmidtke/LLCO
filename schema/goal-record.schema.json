@@ -1,0 +1,366 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gschmidtke/LLCO/schema/goal-record.schema.json",
+  "title": "LLCO goal record (draft 0.1)",
+  "description": "One recovered production goal from a legacy automation estate, with its three separate claims (behaviour, purpose, correctness), its concern classification, its choices and its coverage items. Adapter-local to LLCO per USG direction docs/proposals/legacy-automation-purpose-recovery.md (LOG-0023): fields stay in LLCO until a second adapter needs them; everything handed to USG maps to existing concepts (statement_model, evidence_model, rule_model, pending_user). Not canonical USG schema.",
+  "type": "object",
+  "required": [
+    "goal_id",
+    "title",
+    "record_kind",
+    "claims",
+    "authority",
+    "concerns",
+    "coverage",
+    "version",
+    "history"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "goal_id": {
+      "type": "string",
+      "pattern": "^LLCO-GR-[a-z0-9]+-[0-9]{4}$",
+      "description": "LLCO-GR-<estate>-<NNNN>. Stable, never reused."
+    },
+    "title": { "type": "string" },
+    "record_kind": {
+      "enum": ["recovered", "hypothetical"],
+      "description": "recovered: grounded in an observed estate at a pinned commit. hypothetical: invented illustration, never evidence of a real firm; requires hypothetical_notice."
+    },
+    "hypothetical_notice": {
+      "type": "string",
+      "description": "Required when record_kind is hypothetical. States that the record is invented and is not evidence."
+    },
+    "source": {
+      "$ref": "#/$defs/source_pin",
+      "description": "The recovered kernel this goal is about, pinned. Required when record_kind is recovered."
+    },
+    "related_rule_records": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9]+-[A-Z0-9]+-[0-9]{2}$"
+      },
+      "description": "Derived back-references to LLCO rule records. The many-to-many link lives on the goal side (coverage.ref and this list); rule records carry no mandatory goal field."
+    },
+    "claims": {
+      "type": "object",
+      "required": ["behaviour", "purpose", "correctness"],
+      "additionalProperties": false,
+      "properties": {
+        "behaviour": {
+          "$ref": "#/$defs/claim",
+          "description": "'Routine R gives output Y for input X.' Recorded runs confirm only for tested inputs; a substitute runtime counts only where calibrated."
+        },
+        "purpose": {
+          "allOf": [
+            { "$ref": "#/$defs/claim" },
+            {
+              "if": {
+                "properties": { "status": { "const": "confirmed_positive" } },
+                "required": ["status"]
+              },
+              "then": {
+                "required": ["evidence"],
+                "properties": {
+                  "evidence": {
+                    "contains": {
+                      "properties": { "kind": { "const": "human_ruling" } }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "description": "'R exists to achieve P for beneficiary B.' Supporting evidence never confirms; only the authorized process owner (human authority) does. confirmed_positive therefore requires a human_ruling evidence item."
+        },
+        "correctness": {
+          "$ref": "#/$defs/claim",
+          "description": "'Y is what the process should produce.' Decided by governing documents and the process owner; regulated content goes to professional_review. A long-used defect is a behaviour fact, not evidence of correctness."
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": ["basis"],
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": ["stakeholder_choice", "legal", "preference", "assumption", "open"],
+          "description": "Maps LLCO authority claims onto USG statement_model.basis: firm convention -> stakeholder_choice (relaxable by the firm); client requirement -> stakeholder_choice (relaxable by the client); code -> legal; drafting habit -> preference or assumption; unknown -> open."
+        },
+        "relaxable_by": {
+          "type": ["string", "null"],
+          "description": "Who may change the underlying choice (firm, client, process owner), or null when not relaxable (legal) or unknown."
+        },
+        "basis_note": {
+          "type": "string",
+          "description": "Why this basis is claimed, with the source of the claim (e.g. the rule record's authority block)."
+        }
+      }
+    },
+    "concerns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["statement", "concern"],
+        "additionalProperties": false,
+        "properties": {
+          "statement": { "type": "string" },
+          "concern": {
+            "enum": ["outcome", "condition", "means"],
+            "description": "outcome/condition = essential logic; means = platform mechanism or era constraint (does not descend as a requirement)."
+          },
+          "means_reason": {
+            "enum": ["platform_mechanism", "era_constraint", "unknown"],
+            "description": "Required when concern is means. Adapter-local refinement of USG statement_model.concerns; no protocol field."
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "concern": { "const": "means" } },
+              "required": ["concern"]
+            },
+            "then": { "required": ["means_reason"] }
+          }
+        ]
+      }
+    },
+    "choices": {
+      "type": "array",
+      "description": "The option space the estate covers. Two scopes kept apart: object_rule (inside a document) vs catalogue_availability (what can be sold at all). Maps to rule_model on the USG side.",
+      "items": {
+        "type": "object",
+        "required": ["choice_id", "statement", "scope", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "choice_id": { "type": "string" },
+          "statement": { "type": "string" },
+          "scope": { "enum": ["object_rule", "catalogue_availability"] },
+          "status": {
+            "enum": ["confirmed", "assumed", "open"],
+            "description": "Open choices must surface in pending_user; readiness requires every choice to have a status."
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Every output the process needs from this kernel. Readiness item 1: all listed before successor design."
+    },
+    "cross_output_consistency": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["invariant"],
+        "additionalProperties": false,
+        "properties": {
+          "invariant": {
+            "type": "string",
+            "description": "Target-independent invariant, never a tool command."
+          },
+          "read_back": {
+            "type": "string",
+            "description": "How the invariant is checked with read-back evidence."
+          }
+        }
+      }
+    },
+    "acceptance": {
+      "type": "object",
+      "required": ["basis"],
+      "additionalProperties": false,
+      "properties": {
+        "basis": { "type": "string", "description": "Reference outputs the successor must reproduce." },
+        "element_scope": { "type": "string", "description": "Which elements the reference covers; what is out of scope must be stated." }
+      }
+    },
+    "reconciliation": {
+      "type": "array",
+      "description": "Coverage-based readiness (LOG-0023): a reconciled case is a past released output reproduced with read-back evidence. Coverage, not a count; the engagement owner may raise the bar. A second runner must re-run.",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "description", "result"],
+        "additionalProperties": false,
+        "properties": {
+          "case_id": { "type": "string" },
+          "description": { "type": "string" },
+          "outputs_covered": { "type": "array", "items": { "type": "string" } },
+          "choices_covered": { "type": "array", "items": { "type": "string" } },
+          "boundaries_tested": { "type": "array", "items": { "type": "string" } },
+          "runner": { "type": "string", "description": "Who re-ran the case; the second-runner re-run is part of the basis." },
+          "result": { "enum": ["reconciled", "unreconciled", "pending"] }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["what", "disposition"],
+        "additionalProperties": false,
+        "properties": {
+          "what": { "type": "string", "description": "The goal slice this item covers." },
+          "disposition": {
+            "enum": ["native_coverage", "external_system", "retained_legacy", "reimplement", "retire", "uncovered_gap", "undecided"],
+            "description": "undecided blocks binding output that depends on it; uncovered_gap is never silent."
+          },
+          "coverage_kind": {
+            "enum": ["native", "configured", "scripted", "product_extension"],
+            "description": "Required for native_coverage: which kind of coverage, kept distinct. Needs versioned primary-source evidence."
+          },
+          "ref": {
+            "type": ["string", "null"],
+            "description": "Derived back-reference to a rule record that carries this item's logic, if any."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Who decided / holds the decision (open until ruled)."
+          },
+          "reason": { "type": "string", "description": "Required for native_coverage (as basis), retire and undecided." },
+          "evidence": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/evidence_item" }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "disposition": { "const": "native_coverage" } },
+              "required": ["disposition"]
+            },
+            "then": { "required": ["coverage_kind", "evidence", "reason"] }
+          },
+          {
+            "if": {
+              "properties": { "disposition": { "const": "retire" } },
+              "required": ["disposition"]
+            },
+            "then": { "required": ["reason"] }
+          },
+          {
+            "if": {
+              "properties": { "disposition": { "const": "undecided" } },
+              "required": ["disposition"]
+            },
+            "then": { "required": ["reason"] }
+          }
+        ]
+      }
+    },
+    "pending_user": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Open items for the pending_user gate; high-materiality open items block binding output."
+    },
+    "version": { "type": "string" },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["date", "author", "change"],
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string" },
+          "author": { "type": "string" },
+          "change": { "type": "string" }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "record_kind": { "const": "recovered" } },
+        "required": ["record_kind"]
+      },
+      "then": { "required": ["source"] }
+    },
+    {
+      "if": {
+        "properties": { "record_kind": { "const": "hypothetical" } },
+        "required": ["record_kind"]
+      },
+      "then": { "required": ["hypothetical_notice"] }
+    }
+  ],
+  "$defs": {
+    "source_pin": {
+      "type": "object",
+      "required": ["repo", "commit", "file", "lines"],
+      "additionalProperties": false,
+      "properties": {
+        "repo": { "type": "string" },
+        "commit": { "type": "string" },
+        "file": { "type": "string" },
+        "lines": { "type": "string" },
+        "functions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence_item": {
+      "type": "object",
+      "required": ["kind", "detail"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "static_reading",
+            "interpreter_probe",
+            "recorded_run",
+            "human_ruling",
+            "source_comment",
+            "historical_output",
+            "governing_document",
+            "owner_statement"
+          ],
+          "description": "static_reading/interpreter_probe/recorded_run/human_ruling/source_comment match LLCO's rule-record kinds; historical_output/governing_document/owner_statement are the goal-side additions. interpreter_probe never raises a claim to confirmed; recorded_run confirms behaviour for that input only."
+        },
+        "detail": { "type": "string" },
+        "run_id": { "type": ["string", "null"] },
+        "source_ref": {
+          "type": "string",
+          "description": "Pinned repo@commit or other versioned primary source."
+        },
+        "confidence": {
+          "enum": ["low", "medium", "high"],
+          "description": "owner_statement and interested-party statements are capped at medium (owner_statement and reviewer_independence rules)."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "kind": { "const": "owner_statement" } },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": { "confidence": { "enum": ["low", "medium"] } }
+          }
+        }
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "required": ["statement", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "statement": { "type": "string" },
+        "status": {
+          "enum": ["insufficient", "confirmed_positive", "confirmed_negative", "conflicting"],
+          "description": "USG claim status per evidence_model.claim_status_rule. A claim read from code alone is insufficient."
+        },
+        "note": { "type": "string" },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence_item" }
+        }
+      }
+    }
+  }
+}
